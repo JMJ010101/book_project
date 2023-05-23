@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import Menu from "../components/Header/Menu";
+import { Link } from "react-router-dom";
 
 export const menuItems = [
   {
@@ -74,7 +75,9 @@ const Header = () => {
             </span>
           </MenuBox>
           <logo></logo>
-          <Button>로그인</Button>
+          <Link to="/login">
+            <Button>로그인</Button>
+          </Link>
         </Inner>
       </HeaderContainer>
       <Menu toggle={toggle} />
