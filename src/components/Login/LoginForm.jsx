@@ -22,8 +22,18 @@ const LoginForm = () => {
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <input type="id" placeholder="아이디" value={id} onChange={handleIdChange} />
-        <input type="password" placeholder="패스워드" value={password} onChange={handlePasswordChange} />
+        <input
+          type="id"
+          placeholder="아이디"
+          value={id}
+          onChange={handleIdChange}
+        />
+        <input
+          type="password"
+          placeholder="패스워드"
+          value={password}
+          onChange={handlePasswordChange}
+        />
         <button type="submit">로그인</button>
       </form>
     </div>

@@ -8,6 +8,7 @@ import Book3 from "../images/books/데미안.jpg";
 import Book4 from "../images/books/멋진신세계.jpg";
 import Book5 from "../images/books/어린왕자.jpg";
 import Book6 from "../images/books/인간실격.jpg";
+import Interest from "../BestSeller/Interest";
 
 export const BookItem = [
   {
@@ -17,36 +18,43 @@ export const BookItem = [
         src: Book1,
         alt: "a",
         text: "노르웨이의 숲",
+        writer: "무라카미 하루키",
       },
       {
         src: Book2,
         alt: "a",
         text: "달러구트 꿈 백화점",
+        writer: "이미예",
       },
       {
         src: Book3,
         alt: "a",
         text: "데미안",
+        writer: "헤르만 헤세",
       },
       {
         src: Book4,
         alt: "a",
         text: "멋진 신세계",
+        writer: "올더스 헉슬리",
       },
       {
         src: Book5,
         alt: "a",
         text: "어린 왕자",
+        writer: "앙투안 드 생텍쥐페리",
       },
       {
         src: Book6,
         alt: "a",
         text: "인간 실격",
+        writer: "다자이 오사무",
       },
       {
         src: Book1,
         alt: "a",
         text: "노르웨이의 숲",
+        writer: "무라카미 하루키",
       },
     ],
   },
@@ -175,21 +183,21 @@ export const BookItem = [
   },
 ];
 
-export const BestSellerContainer = styled.div`
+const BestSellerContainer = styled.div`
   width: 100%;
 `;
 
-export const Inner = styled.div`
+const Inner = styled.div`
   width: 1100px;
-  height: 2500px;
+  height: 3000px;
   margin: 0 auto;
 `;
 
-export const TextBox = styled.div`
+const TextBox = styled.div`
   width: 500px;
   height: 300px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-bottom: 30px;
   text-align: center;
   .text1 {
@@ -226,6 +234,17 @@ const BestSeller = () => {
           </div>
         </TextBox>
         <BestBooks />
+        <TextBox>
+          <div className="text1">
+            <p>관심 분야에 있는 책도</p>
+            <p>딱 골라드려요</p>
+          </div>
+          <div className="text2">
+            <p>검색어 순위를 통해 뽑은</p>
+            <p>인기 분야 책들을 확인해보세요</p>
+          </div>
+        </TextBox>
+        <Interest />
       </Inner>
     </BestSellerContainer>
   );

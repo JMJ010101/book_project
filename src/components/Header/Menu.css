@@ -3,7 +3,7 @@
   box-shadow: 0 4px 4px -4px #bbb;
   height: 60px;
   transition: opacity 0.4s, height 0.4s;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.8);
   position: fixed;
   overflow: hidden;
   z-index: 1;
@@ -11,7 +11,7 @@
 
 .MenuContainer.toggle {
   opacity: 1;
-  height: 25vh;
+  height: 23vh;
   pointer-events: none;
   z-index: 2;
 }
