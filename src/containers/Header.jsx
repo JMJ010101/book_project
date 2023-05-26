@@ -57,6 +57,7 @@ export const Button = styled.button`
   width: 80px;
   height: 30px;
   padding: 5px;
+  cursor: pointer;
 `;
 
 const Header = () => {

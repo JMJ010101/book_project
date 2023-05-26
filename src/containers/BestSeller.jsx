@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import BestBooks from "../BestSeller/BestBooks";
+import BestBooks from "../components/BestSeller/BestBooks";
 
 import Book1 from "../images/books/노르웨이의숲.jpg";
 import Book2 from "../images/books/달러구트꿈백화점.jpg";
@@ -8,7 +8,7 @@ import Book3 from "../images/books/데미안.jpg";
 import Book4 from "../images/books/멋진신세계.jpg";
 import Book5 from "../images/books/어린왕자.jpg";
 import Book6 from "../images/books/인간실격.jpg";
-import Interest from "../BestSeller/Interest";
+import Interest from "../components/BestSeller/Interest";
 
 export const BookItem = [
   {
@@ -183,13 +183,80 @@ export const BookItem = [
   },
 ];
 
+export const BookItem2 = [
+  {
+    name: "동물",
+    contents: [
+      {
+        src: Book1,
+        alt: "a",
+        text: "노르웨이의 숲",
+        writer: "무라카미 하루키",
+      },
+      {
+        src: Book2,
+        alt: "a",
+        text: "달러구트 꿈 백화점",
+        writer: "이미예",
+      },
+    ],
+  },
+  {
+    name: "영어",
+    contents: [
+      {
+        src: Book3,
+        alt: "a",
+        text: "데미안",
+        writer: "헤르만 헤세",
+      },
+      {
+        src: Book4,
+        alt: "a",
+        text: "멋진 신세계",
+        writer: "올더스 헉슬리",
+      },
+    ],
+  },
+  {
+    name: "음식",
+    contents: [
+      {
+        src: Book5,
+        alt: "a",
+        text: "어린 왕자",
+      },
+      {
+        src: Book6,
+        alt: "a",
+        text: "인간 실격",
+      },
+    ],
+  },
+  {
+    name: "다이어트",
+    contents: [
+      {
+        src: Book2,
+        alt: "a",
+        text: "달러구트 꿈 백화점",
+      },
+      {
+        src: Book3,
+        alt: "a",
+        text: "데미안",
+      },
+    ],
+  },
+];
+
 const BestSellerContainer = styled.div`
   width: 100%;
 `;
 
 const Inner = styled.div`
   width: 1100px;
-  height: 3000px;
+  height: 2800px;
   margin: 0 auto;
 `;
 
@@ -198,8 +265,8 @@ const TextBox = styled.div`
   height: 300px;
   margin: 0 auto;
   margin-top: 100px;
-  margin-bottom: 30px;
   text-align: center;
+
   .text1 {
     height: 50%;
     font-size: 50px;

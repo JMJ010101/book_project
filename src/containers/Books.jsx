@@ -12,7 +12,7 @@ import Book5 from "../images/books/어린왕자.jpg";
 import Book6 from "../images/books/인간실격.jpg";
 
 export const BooksContainer = styled.div`
-  width: 100%;
+  width: 97%;
   background-color: white;
   padding: 30px;
 `;
