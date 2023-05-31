@@ -7,7 +7,7 @@ export const BestBooksContainer = styled.div`
 `;
 
 export const Text = styled.div`
-  height: 40px;
+  height: 35px;
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
@@ -22,7 +22,7 @@ export const ImageContainer = styled.div`
 
 export const Book = styled.img`
   width: 137px;
-  height: 230px;
+  height: 200px;
   margin-right: 20px;
 `;
 
