@@ -10,26 +10,32 @@ import {
   Links,
   OrDiv,
   Buttons,
+  InputDiv,
 } from "./LoginFormSty";
 import { OptionItem } from "./../../containers/Login/LoginPage";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [id, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleIdChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // 여기에 DB에 연결하는 로직을 작성합니다.
-    // id와 password 변수를 사용하여 DB와 통신하고 인증 로직을 수행할 수 있습니다.
+    try {
+      const response = await axios.post("http://192.168.0.66:8087/api/login", {
+        id,
+        password,
+      });
+      console.log(response.data);
+      alert("로그인 성공");
+      navigate("/");
+      localStorage.setItem("id", response.data.username);
+    } catch (error) {
+      alert("아이디나 비밀번호를 다시 확인해주세요.");
+      console.log(error);
+    }
   };
 
   return (
@@ -41,18 +47,24 @@ const LoginForm = () => {
           <div className="text2">12만 권 속에서 인생책을 찾아보세요</div>
         </TextBox>
         <LoginInput onSubmit={handleSubmit}>
-          <input
-            type="id"
-            placeholder="아이디"
-            value={id}
-            onChange={handleIdChange}
-          />
-          <input
-            type="password"
-            placeholder="비밀번호"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+          <InputDiv className="inputBox" tabindex="-1">
+            <div>아이디</div>
+            <input
+              type="id"
+              placeholder="아이디 입력"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+            />
+          </InputDiv>
+          <InputDiv>
+            <div>비밀번호</div>
+            <input
+              type="password"
+              placeholder="비밀번호 입력"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </InputDiv>
           <LoginBtn type="submit">로그인</LoginBtn>
         </LoginInput>
         <Options>

@@ -14,10 +14,6 @@ function App() {
         <Route path="/join" element={<Join />} />
         <Route path="/find-password" element={<FindPassword />} />
         <Route path="/b2b" element={<B2B />} />
-        <Route path="/b2b" element={<B2B />} />
-        <Route path="/b2b" element={<B2B />} />
-        <Route path="/b2b" element={<B2B />} />
-        <Route path="/b2b" element={<B2B />} />
       </Routes>
     </Router>
   );

@@ -13,31 +13,6 @@ export const Inner = styled.div`
   overflow: auto;
 `;
 
-export const TextBox = styled.div`
-  width: 500px;
-  height: 230px;
-  margin: 0 auto;
-  margin-top: 80px;
-  margin-bottom: 30px;
-  text-align: center;
-  .text1 {
-    height: 60%;
-    font-size: 45px;
-    font-weight: 600;
-    color: #333;
-    line-height: 55px;
-  }
-  .text2 {
-    height: 40%;
-    font-size: 23px;
-    color: #767676;
-    line-height: 30px;
-    p {
-      margin-bottom: 8px;
-    }
-  }
-`;
-
 export const Button = styled.button`
   display: flex;
   margin: 0 auto;

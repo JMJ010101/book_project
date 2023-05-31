@@ -62,7 +62,10 @@ const Question = () => {
                 </span>
               </div>
               <div
-                style={{ outline: "1px solid #626161", marginBottom: "10px" }}
+                style={{
+                  borderBottom: "1px solid #626161",
+                  marginBottom: "10px",
+                }}
               ></div>
               <p dangerouslySetInnerHTML={{ __html: item.answer }} />
             </Questions>

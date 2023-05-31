@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Inner, ReviewContainer } from "./ReviewSty";
 import ReviewImg from "../../../images/review.png";
 import ReactPlayer from "react-player";
+import { TextBox } from "../Common/TextBoxes";
 
 const ReviewStory = () => {
   const [playVideo, setPlayVideo] = useState(false);
@@ -39,16 +40,16 @@ const ReviewStory = () => {
           </div>
         )}
 
-        <div className="text">
-          <h2>
+        <TextBox>
+          <div className="text1">
             내돈내산
             <br />
             밀리 구독 이야기
-          </h2>
-          <p>
+          </div>
+          <div className="text2">
             패션 브랜드 대표부터 <br /> 고등학교 교사까지!
-          </p>
-        </div>
+          </div>
+        </TextBox>
       </Inner>
     </ReviewContainer>
   );

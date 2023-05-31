@@ -5,7 +5,8 @@ import "./swiper-bundle.css";
 import BookSlide1 from "../../../images/book.png";
 import BookSlide2 from "../../../images/book2.png";
 import BookSlide3 from "../../../images/book3.png";
-import { BooksContainer, ImageBox, Inner, TextBox } from "./BooksSty";
+import { BooksContainer, ImageBox, Inner } from "./BooksSty";
+import { TextBox } from "../Common/TextBoxes";
 
 SwiperCore.use(Autoplay);
 
@@ -34,7 +35,7 @@ const Books = () => {
             loop={true}
             loopAdditionalSlides={1}
             slidesPerView={1}
-            speed={100000}
+            speed={50000}
             simulateTouch={false}
             autoplay={{
               delay: 0, // Adjust the delay to control the speed (e.g., 3000 milliseconds)
@@ -57,7 +58,7 @@ const Books = () => {
             loop={true}
             loopAdditionalSlides={1}
             slidesPerView={1}
-            speed={100000}
+            speed={50000}
             simulateTouch={false}
             autoplay={{
               delay: 0, // Adjust the delay to control the speed (e.g., 3000 milliseconds)
@@ -80,7 +81,7 @@ const Books = () => {
             loop={true}
             loopAdditionalSlides={1}
             slidesPerView={1}
-            speed={100000}
+            speed={50000}
             simulateTouch={false}
             autoplay={{
               delay: 0, // Adjust the delay to control the speed (e.g., 3000 milliseconds)

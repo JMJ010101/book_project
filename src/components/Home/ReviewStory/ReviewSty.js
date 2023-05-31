@@ -32,22 +32,4 @@ export const Inner = styled.div`
       cursor: pointer;
     }
   }
-  .text {
-    width: 38%;
-    height: 60%;
-    margin-top: 90px;
-    margin-right: 20px;
-    h2 {
-      font-size: 47px;
-      font-weight: bold;
-      color: #323232;
-      margin-bottom: 30px;
-      line-height: 60px;
-    }
-    p {
-      font-size: 20px;
-      color: #505050;
-      line-height: 30px;
-    }
-  }
 `;

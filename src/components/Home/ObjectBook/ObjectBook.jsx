@@ -1,6 +1,6 @@
 import React from "react";
-import ReactPlayer from "react-player";
-import { AudioBookContainer, Button, Inner, TextBox } from "./ObjectBookSty";
+import { AudioBookContainer, Button, Inner } from "./ObjectBookSty";
+import { TextBox } from "../Common/TextBoxes";
 
 const ObjectBook = () => {
   return (
@@ -20,15 +20,6 @@ const ObjectBook = () => {
             </p>
           </div>
         </TextBox>
-        {/* <ReactPlayer
-          className="player"
-          url={"https://youtu.be/JJydPS3zyvo"}
-          width="100%"
-          height="430px"
-          playing={false}
-          muted={true}
-          controls={false}
-        /> */}
         <iframe
           title="objectBook"
           src="https://d3udu241ivsax2.cloudfront.net/common/video/brand/objectbook.mp4"
