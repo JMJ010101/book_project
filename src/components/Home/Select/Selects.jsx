@@ -85,14 +85,19 @@ const Selects = () => {
                       </TextBox>
                       <ImageBox>
                         <Images>
-                          <img
+                          <iframe
+                            title="a"
                             src={i.src}
                             alt={i.src}
                             style={{
-                              width: "360px",
+                              width: "100%",
+                              height: "100%",
                               marginLeft: "7px",
                               position: "absolute",
                             }}
+                            allow="autoplay"
+                            scrolling="no"
+                            loop="1"
                           />
                           <img
                             src={PhoneImg}

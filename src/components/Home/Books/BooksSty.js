@@ -33,41 +33,19 @@ export const TextBox = styled.div`
 `;
 
 export const ImageBox = styled.div`
-  height: 680px;
+  height: 220px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* 
-  @keyframes slidein {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-
-  .slide-animation {
-    animation: slidein 10s ease-in-out infinite;
-  }
-
-  .slide-animation-reverse {
-    animation-direction: reverse;
-  }
-
-  .book-image {
-    width: 130px;
-    height: 180px;
-    margin-right: 20px;
-  } */
 
   .swiper-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
     transition-timing-function: linear;
+    .custom-swiper-slide {
+      direction: rtl;
+    }
   }
   .swiper-slide {
     display: flex;

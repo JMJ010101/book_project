@@ -32,9 +32,10 @@ const Books = () => {
         <ImageBox>
           <Swiper
             loop={true}
-            loopAdditionalSlides={2}
+            loopAdditionalSlides={1}
             slidesPerView={1}
-            speed={20000}
+            speed={100000}
+            simulateTouch={false}
             autoplay={{
               delay: 0, // Adjust the delay to control the speed (e.g., 3000 milliseconds)
               disableOnInteraction: false,
@@ -44,15 +45,55 @@ const Books = () => {
               <SwiperSlide>
                 <img src={BookSlide1} alt="BookSlide1" />
                 <img src={BookSlide1} alt="BookSlide1" />
+                <img src={BookSlide1} alt="BookSlide1" />
               </SwiperSlide>
-              <SwiperSlide dir="ltr">
+              <SwiperSlide></SwiperSlide>
+            </div>
+          </Swiper>
+        </ImageBox>
+
+        <ImageBox dir="rtl">
+          <Swiper
+            loop={true}
+            loopAdditionalSlides={1}
+            slidesPerView={1}
+            speed={100000}
+            simulateTouch={false}
+            autoplay={{
+              delay: 0, // Adjust the delay to control the speed (e.g., 3000 milliseconds)
+              disableOnInteraction: false,
+            }}
+          >
+            <div className="swiper-wrapper">
+              <SwiperSlide>
                 <img src={BookSlide2} alt="BookSlide2" />
                 <img src={BookSlide2} alt="BookSlide2" />
+                <img src={BookSlide2} alt="BookSlide2" />
               </SwiperSlide>
+              <SwiperSlide></SwiperSlide>
+            </div>
+          </Swiper>
+        </ImageBox>
+
+        <ImageBox>
+          <Swiper
+            loop={true}
+            loopAdditionalSlides={1}
+            slidesPerView={1}
+            speed={100000}
+            simulateTouch={false}
+            autoplay={{
+              delay: 0, // Adjust the delay to control the speed (e.g., 3000 milliseconds)
+              disableOnInteraction: false,
+            }}
+          >
+            <div className="swiper-wrapper">
               <SwiperSlide>
                 <img src={BookSlide3} alt="BookSlide3" />
                 <img src={BookSlide3} alt="BookSlide3" />
+                <img src={BookSlide3} alt="BookSlide3" />
               </SwiperSlide>
+              <SwiperSlide></SwiperSlide>
             </div>
           </Swiper>
         </ImageBox>
