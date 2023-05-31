@@ -435,7 +435,7 @@ const BestSellerContainer = styled.div`
 
 const Inner = styled.div`
   width: 1100px;
-  height: 2800px;
+  height: 3000px;
   margin: 0 auto;
 `;
 

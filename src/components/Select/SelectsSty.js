@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
 
-const Container = styled.div``;
+export const Container = styled.div``;
 
-const SelectBtnContainer = styled.div`
+export const SelectBtnContainer = styled.div`
   width: 100%;
   background-color: white;
 `;
 
-const Inner = styled.div`
+export const Inner = styled.div`
   width: 1100px;
   height: 100px;
   margin: 0 auto;
@@ -26,12 +26,12 @@ const Inner = styled.div`
   }
 `;
 
-const ContentContainer = styled.div`
+export const ContentContainer = styled.div`
   width: 100%;
   background-color: #f7f7f7;
 `;
 
-const Inner2 = styled.div`
+export const Inner2 = styled.div`
   width: 1100px;
   height: 900px;
   margin: 0 auto;
@@ -39,7 +39,7 @@ const Inner2 = styled.div`
   border: 1px solid red;
 `;
 
-const TextBox = styled.div`
+export const TextBox = styled.div`
   width: 680px;
   height: 100%;
   color: #333;
@@ -102,13 +102,13 @@ const TextBox = styled.div`
   }
 `;
 
-const ImageBox = styled.div`
+export const ImageBox = styled.div`
   border: 1px solid red;
   width: 420px;
   height: 100%;
 `;
 
-const Images = styled.div`
+export const Images = styled.div`
   width: 99%;
   overflow: hidden;
   height: 782px;

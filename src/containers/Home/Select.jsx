@@ -19,7 +19,7 @@ export const SelectItem = [
         number: 2,
         function: "귀로 듣다가 눈으로도 같이 보면",
         content: "더 내용이 잘 이해돼요",
-        src: "../../images/audiobook2",
+        src: "https://d3udu241ivsax2.cloudfront.net/common/video/brand/audiobook2.mp4?v1",
       },
       {
         number: 3,

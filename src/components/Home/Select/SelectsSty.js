@@ -110,8 +110,9 @@ export const ImageBox = styled.div`
 export const Images = styled.div`
   position: relative;
   overflow: hidden;
-  width: 99%;
+  width: 380px;
   height: 782px;
   margin-top: 80px;
   border-radius: 70px;
+  object-fit: contain;
 `;
