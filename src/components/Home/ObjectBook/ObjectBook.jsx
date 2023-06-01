@@ -1,6 +1,6 @@
 import React from "react";
 import { AudioBookContainer, Button, Inner } from "./ObjectBookSty";
-import { TextBox } from "../Common/TextBoxes";
+import { TextBox } from "../../Common/TextBoxes";
 
 const ObjectBook = () => {
   return (

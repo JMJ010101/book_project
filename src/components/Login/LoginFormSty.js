@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const LoginContainer = styled.div`
   height: 100vh;
   display: flex;
+  letter-spacing: -1.2px;
 `;
 
 export const ImageDiv = styled.div`
@@ -39,6 +40,7 @@ export const TextBox = styled.div`
 `;
 
 export const LoginInput = styled.form`
+  width: 480px;
   margin-top: 13px;
   margin: 0 auto;
   div {
@@ -68,7 +70,7 @@ export const InputDiv = styled.div`
 `;
 
 export const LoginBtn = styled.button`
-  width: 480px;
+  width: 476px;
   background-color: #ffeb60;
   opacity: 0.5;
   color: #333;
@@ -77,6 +79,8 @@ export const LoginBtn = styled.button`
   padding: 17px;
   font-size: 16px;
   margin-top: 7px;
+  margin-left: 3px;
+  letter-spacing: -1.2px;
   cursor: pointer;
   :hover& {
     opacity: 1;

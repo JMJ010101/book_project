@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const AudioBookContainer = styled.div`
   width: 100%;
   height: 900px;
+  letter-spacing: -1.2px;
   background-color: #f7f7f7;
 `;
 

@@ -432,11 +432,12 @@ export const BookItem2 = [
 
 const BestSellerContainer = styled.div`
   width: 100%;
+  letter-spacing: -1.2px;
 `;
 
 const Inner = styled.div`
   width: 1100px;
-  height: 3000px;
+  height: 2700px;
   margin: 0 auto;
 `;
 

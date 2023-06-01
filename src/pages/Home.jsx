@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../containers/Home/Header";
-import Main from "../containers/Home/Main";
+import MainImage from "./../containers/Home/MainImage";
 import Books from "../components/Home/Books/Books";
 import BestSeller from "../containers/Home/BestSeller";
 import Complete from "../containers/Home/Complete";
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Main />
+      <MainImage />
       <Books />
       <ObjectBook />
       <BestSeller />

@@ -12,6 +12,7 @@ import { TextBox } from "../../components/Home/Common/TextBoxes";
 const CompleteContainer = styled.div`
   width: 100%;
   background-color: #f7f7f7;
+  letter-spacing: -1.2px;
 `;
 
 const Inner = styled.div`

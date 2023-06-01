@@ -10,6 +10,7 @@ import {
 } from "../Login/LoginFormSty";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import apiServer from "../../api/api";
 
 const JoinForm = () => {
   const [id, setId] = useState("");
@@ -26,7 +27,7 @@ const JoinForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://192.168.0.66:8087/api/signup",
+        `${apiServer}/api/signup`,
         {
           id: id,
           pw: pw,
@@ -39,8 +40,8 @@ const JoinForm = () => {
         }
       );
       alert("회원가입 성공");
-      navigate("/login");
       console.log(response.data);
+      navigate("/login");
     } catch (error) {
       alert("회원가입에 실패했습니다.");
       console.log(error);
