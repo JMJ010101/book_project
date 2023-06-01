@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const BooksContainer = styled.div`
   background-color: white;
   padding: 30px;
+  letter-spacing: -1.2px;
 `;
 
 export const Inner = styled.div`

@@ -15,23 +15,30 @@ import {
 import { OptionItem } from "./../../containers/Login/LoginPage";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import apiServer from "../../api/api";
 
 const LoginForm = () => {
   const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+  const [pw, setPw] = useState("");
   const navigate = useNavigate();
+
+  const ToMain = () => {
+    navigate("/main");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://192.168.0.66:8087/api/login", {
+      const response = await axios.post(`${apiServer}/api/login`, {
         id,
-        password,
+        pw,
       });
       console.log(response.data);
       alert("로그인 성공");
-      navigate("/");
-      localStorage.setItem("id", response.data.username);
+      // localStorage.setItem("id", response.data.id);
+      const token = response.data.token;
+      localStorage.setItem("accessToken", token);
+      navigate("/main");
     } catch (error) {
       alert("아이디나 비밀번호를 다시 확인해주세요.");
       console.log(error);
@@ -47,7 +54,7 @@ const LoginForm = () => {
           <div className="text2">12만 권 속에서 인생책을 찾아보세요</div>
         </TextBox>
         <LoginInput onSubmit={handleSubmit}>
-          <InputDiv className="inputBox" tabindex="-1">
+          <InputDiv>
             <div>아이디</div>
             <input
               type="id"
@@ -61,8 +68,8 @@ const LoginForm = () => {
             <input
               type="password"
               placeholder="비밀번호 입력"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
             />
           </InputDiv>
           <LoginBtn type="submit">로그인</LoginBtn>
@@ -101,6 +108,7 @@ const LoginForm = () => {
             alt="Google로 로그인"
           />
         </Buttons>
+        <LoginBtn onClick={ToMain}>메인으로</LoginBtn>
       </LoginDiv>
     </LoginContainer>
   );

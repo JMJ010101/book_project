@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const InterestContainer = styled.div`
   width: 100%;
   height: 500px;
+  letter-spacing: -1.2px;
 `;
 
 export const Category = styled.div`

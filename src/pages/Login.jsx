@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import LoginPage from "../containers/Login/LoginPage";
 
-export class Login extends Component {
-  render() {
-    return (
-      <>
-        <LoginPage />
-      </>
-    );
-  }
-}
+const Login = () => {
+  return (
+    <>
+      <LoginPage />
+    </>
+  );
+};
 
 export default Login;

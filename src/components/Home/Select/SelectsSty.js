@@ -5,6 +5,7 @@ export const Container = styled.div``;
 export const SelectBtnContainer = styled.div`
   width: 100%;
   background-color: white;
+  letter-spacing: -1.2px;
 `;
 
 export const Inner = styled.div`
@@ -30,6 +31,7 @@ export const CategoryDiv = styled.div`
 export const ContentContainer = styled.div`
   width: 100%;
   background-color: #f7f7f7;
+  letter-spacing: -1.2px;
 `;
 
 export const Inner2 = styled.div`

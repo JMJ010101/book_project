@@ -61,10 +61,10 @@ export const TextBox = styled.div`
   }
 `;
 
-const TextBoxes = () => {
-  const animatedItem = useScrollFadeIn();
+// const TextBoxes = () => {
+//   const animatedItem = useScrollFadeIn();
 
-  return <div></div>;
-};
+//   return <div></div>;
+// };
 
-export default TextBox;
+// export default TextBox;
