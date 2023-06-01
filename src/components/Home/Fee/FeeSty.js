@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const FeeContainer = styled.div`
   width: 100%;
   background-color: #ffed61;
+  letter-spacing: -1.2px;
 `;
 
 export const Inner = styled.div`

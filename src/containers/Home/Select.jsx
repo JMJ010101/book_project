@@ -62,7 +62,7 @@ export const SelectItem = [
         number: 4,
         function: "자유로운 보기 설정",
         content:
-          "줄간격부터 폰트까지 내 마음대로 설정하면 더욱 편한 독서를 할 수 있어요",
+          "줄간격부터 폰트까지 내 마음대로 설정하면<br/> 더욱 편한 독서를 할 수 있어요",
         src: "https://d3udu241ivsax2.cloudfront.net/common/video/brand/viewer_system2.mp4?v1",
       },
     ],

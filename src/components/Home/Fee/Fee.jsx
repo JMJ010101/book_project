@@ -4,7 +4,7 @@ import Price2 from "../../../images/price2.png";
 import Ticket from "../../../images/ticket.png";
 import Won from "../../../images/won.png";
 import { Card, FeeBox, FeeCard, FeeContainer, Inner, Text } from "./FeeSty";
-import { TextBox } from "../Common/TextBoxes";
+import { TextBox } from "../../Common/TextBoxes";
 
 const Fee = () => {
   return (

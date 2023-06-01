@@ -62,7 +62,10 @@ const Selects = () => {
                           </div>
                           <div className="box2">
                             <div className="text1">{i.function}</div>
-                            <div className="text2">{i.content}</div>
+                            <div
+                              className="text2"
+                              dangerouslySetInnerHTML={{ __html: i.content }}
+                            />
                             <div className="buttonBox">
                               {SelectItem.map((item) =>
                                 item.title === selectedCategory

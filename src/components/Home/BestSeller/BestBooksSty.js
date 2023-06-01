@@ -3,7 +3,8 @@ import { styled } from "styled-components";
 export const BestBooksContainer = styled.div`
   width: 100%;
   height: 1700px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
+  letter-spacing: -1.2px;
 `;
 
 export const Text = styled.div`

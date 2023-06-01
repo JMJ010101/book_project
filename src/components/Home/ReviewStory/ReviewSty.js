@@ -5,6 +5,7 @@ import ReviewBg2 from "../../../images/reviewBg2.png";
 export const ReviewContainer = styled.div`
   width: 100%;
   background-image: url(${ReviewBg2});
+  letter-spacing: -1.2px;
 `;
 
 export const Inner = styled.div`

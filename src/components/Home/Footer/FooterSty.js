@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
-export const FooterContainer = styled.div``;
+export const FooterContainer = styled.div`
+  letter-spacing: -1.2px;
+`;
 
 export const Inner = styled.div`
   width: 100%;
