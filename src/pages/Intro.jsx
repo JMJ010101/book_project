@@ -1,5 +1,5 @@
 import React from "react";
-import IntroForm from "../components/Intro/IntroForm";
+import IntroForm from "../containers/Intro/IntroForm";
 
 const Intro = () => {
   return (

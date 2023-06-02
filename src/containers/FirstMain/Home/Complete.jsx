@@ -1,13 +1,13 @@
 import React from "react";
 import { styled } from "styled-components";
-import Phone1 from "../../images/complete/phone.png";
-import Pick from "../../images/complete/card_pick2.png";
-import Card1 from "../../images/complete/card_holic.png";
-import Card2 from "../../images/complete/card_mania.png";
-import Card3 from "../../images/complete/card_pick.png";
-import Card4 from "../../images/complete/card_hidden.png";
-import CompleteImg from "../FirstMain/Complete/CompleteImg";
-import { TextBox } from "../../components/Common/TextBoxes";
+import Phone1 from "../../../images/complete/phone.png";
+import Pick from "../../../images/complete/card_pick2.png";
+import Card1 from "../../../images/complete/card_holic.png";
+import Card2 from "../../../images/complete/card_mania.png";
+import Card3 from "../../../images/complete/card_pick.png";
+import Card4 from "../../../images/complete/card_hidden.png";
+import CompleteImg from "../../FirstMain/Complete/CompleteImg";
+import { TextBox } from "../../../components/Common/TextBoxes";
 
 const CompleteContainer = styled.div`
   width: 100%;
