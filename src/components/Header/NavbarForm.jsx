@@ -5,17 +5,19 @@ import {
   LeftBox,
   Links,
   MainMenu,
+  NavbarBox,
   NavbarContainer,
   NavbarContainer2,
   SubMenu,
 } from "./NavbarSty";
-import Logo from "../../../images/MainLogo.png";
-import { MainItems, aa } from "../../../containers/Main/Navbar";
-import { Link } from "react-router-dom";
+import Logo from "../../images/MainLogo.png";
+import { MainItems } from "../../containers/Header/Navbar";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarForm = () => {
   const [selectMenu, setSelectMenu] = useState("투데이");
   const [selectSub, setSelectSub] = useState(1);
+  const navigate = useNavigate();
 
   const handleMenuClick = (menu) => {
     setSelectMenu(menu);
@@ -24,8 +26,14 @@ const NavbarForm = () => {
   const handleSubClick = (sub) => {
     setSelectSub(sub);
   };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    alert("로그아웃 성공");
+    navigate("/");
+  };
   return (
-    <>
+    <NavbarBox>
       <NavbarContainer>
         <Inner>
           <LeftBox>
@@ -44,28 +52,30 @@ const NavbarForm = () => {
               </Links>
             ))}
           </LeftBox>
-          <button>로그아웃</button>
+          <button onClick={handleLogout}>로그아웃</button>
         </Inner>
       </NavbarContainer>
       <NavbarContainer2>
-        <Inner2>
-          {MainItems.map((item) => (
-            <>
-              {selectMenu === item.title &&
-                item.subitems.map((i) => (
-                  <SubMenu
-                    key={item.title}
-                    onClick={() => handleSubClick(i.idx)}
-                    selected={selectSub === i.idx}
-                  >
-                    {i.name}
-                  </SubMenu>
-                ))}
-            </>
-          ))}
-        </Inner2>
+        <Inner>
+          <Inner2>
+            {MainItems.map((item) => (
+              <>
+                {selectMenu === item.title &&
+                  item.subitems.map((i) => (
+                    <SubMenu
+                      key={item.title}
+                      onClick={() => handleSubClick(i.idx)}
+                      selected={selectSub === i.idx}
+                    >
+                      {i.name}
+                    </SubMenu>
+                  ))}
+              </>
+            ))}
+          </Inner2>
+        </Inner>
       </NavbarContainer2>
-    </>
+    </NavbarBox>
   );
 };
 
