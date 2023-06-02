@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import BestBooks from "../../components/Home/BestSeller/BestBooks";
 import Interest from "../../components/Home/BestSeller/Interest";
-import { TextBox } from "../../components/Home/Common/TextBoxes";
+import { TextBox } from "../../components/Common/TextBoxes";
 
 export const BookItem = [
   {
