@@ -7,7 +7,7 @@ import Card2 from "../../images/complete/card_mania.png";
 import Card3 from "../../images/complete/card_pick.png";
 import Card4 from "../../images/complete/card_hidden.png";
 import CompleteImg from "../../components/Home/Complete/CompleteImg";
-import { TextBox } from "../../components/Home/Common/TextBoxes";
+import { TextBox } from "../../components/Common/TextBoxes";
 
 const CompleteContainer = styled.div`
   width: 100%;
