@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
-import MainBg from "../../images/MainBg.png";
-import MainImg from "../FirstMain/MainImage/MainImg";
-import Millie from "../../images/millie.png";
-import { MainTextBox } from "../../components/Common/TextBoxes";
+import MainBg from "../../../images/MainBg.png";
+import MainImg from "../../FirstMain/MainImage/MainImg";
+import Millie from "../../../images/millie.png";
+import { MainTextBox } from "../../../components/Common/TextBoxes";
 
 export const MainContainer = styled.div`
   position: relative;
