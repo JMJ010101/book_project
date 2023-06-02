@@ -21,6 +21,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/intro" element={<Intro />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/main" element={<Main />} />
       </Routes>
     </Router>
   );
