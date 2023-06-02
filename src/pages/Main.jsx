@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../containers/Header/Navbar";
-import MainSlide from "../containers/Main/MainSlide";
+import Navbar from "../components/Header/Navbar";
+import MainSlide from "../containers/SecondMain/MainSlide";
 
 const Main = () => {
   return (

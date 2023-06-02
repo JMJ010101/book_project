@@ -1,17 +1,7 @@
 import React, { useState } from "react";
-import {
-  Inner,
-  Inner2,
-  LeftBox,
-  Links,
-  MainMenu,
-  NavbarBox,
-  NavbarContainer,
-  NavbarContainer2,
-  SubMenu,
-} from "./NavbarSty";
+import { Inner, Inner2, LeftBox, Links, MainMenu, NavbarBox, NavbarContainer, NavbarContainer2, SubMenu } from "./NavbarSty";
 import Logo from "../../images/MainLogo.png";
-import { MainItems } from "../../containers/Header/Navbar";
+import { MainItems } from "./Navbar";
 import { Link, useNavigate } from "react-router-dom";
 
 const NavbarForm = () => {
@@ -42,11 +32,7 @@ const NavbarForm = () => {
             </Link>
             {MainItems.map((item) => (
               <Links to={item.to}>
-                <MainMenu
-                  key={item.title}
-                  onClick={() => handleMenuClick(item.title)}
-                  selected={selectMenu === item.title}
-                >
+                <MainMenu key={item.title} onClick={() => handleMenuClick(item.title)} selected={selectMenu === item.title}>
                   {item.title}
                 </MainMenu>
               </Links>
@@ -62,11 +48,7 @@ const NavbarForm = () => {
               <>
                 {selectMenu === item.title &&
                   item.subitems.map((i) => (
-                    <SubMenu
-                      key={item.title}
-                      onClick={() => handleSubClick(i.idx)}
-                      selected={selectSub === i.idx}
-                    >
+                    <SubMenu key={item.title} onClick={() => handleSubClick(i.idx)} selected={selectSub === i.idx}>
                       {i.name}
                     </SubMenu>
                   ))}
