@@ -1,8 +1,14 @@
 import React from "react";
-import Navbar from "../containers/Main/Navbar";
+import Navbar from "../containers/Header/Navbar";
+import MainSlide from "../containers/Main/MainSlide";
 
 const Main = () => {
-  return <Navbar></Navbar>;
+  return (
+    <>
+      <Navbar />
+      <MainSlide />
+    </>
+  );
 };
 
 export default Main;

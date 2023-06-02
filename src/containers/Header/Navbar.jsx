@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarForm from "../../components/Main/Navbar/NavbarForm";
+import NavbarForm from "../../components/Header/NavbarForm";
 
 export const MainItems = [
   {
