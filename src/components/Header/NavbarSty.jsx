@@ -4,9 +4,10 @@ import { styled } from "styled-components";
 export const NavbarBox = styled.div`
   width: 100%;
   position: fixed;
+  height: 105px;
+  background-color: white;
   top: 0;
   z-index: 9;
-  border-bottom: 1px solid #ddd;
 `;
 export const NavbarContainer = styled.div`
   width: 100%;
@@ -75,7 +76,7 @@ export const Inner2 = styled.div`
 export const SubMenu = styled.div`
   font-size: 16px;
   font-weight: ${(props) => (props.selected ? "800" : "400")};
-  padding: 10px 10px;
+  padding: 11px 10px;
   border-bottom: ${(props) => (props.selected ? "3px solid #242424" : "none")};
   cursor: pointer;
 `;
