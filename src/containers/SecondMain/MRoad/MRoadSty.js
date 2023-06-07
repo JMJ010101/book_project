@@ -1,11 +1,9 @@
 import { styled } from "styled-components";
 
-export const RoadContainer = styled.div`
-  border: 1px solid blue;
-`;
+export const RoadContainer = styled.div``;
 
 export const Inner = styled.div`
-  max-width: 1400px;
+  max-width: 1450px;
   margin: 0 auto;
   height: 500px;
 `;
@@ -18,9 +16,9 @@ export const Writing = styled.p`
 
 export const Roads = styled.div`
   height: 380px;
-  border: 1px solid green;
   padding: 20px 20px 0 20px;
   display: flex;
+  overflow: hidden;
 `;
 
 export const MainRoad = styled.div`
@@ -65,19 +63,40 @@ export const MainRoad = styled.div`
 `;
 
 export const Road = styled.div`
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.06), 2px 2px 10px rgba(0, 0, 0, 0.04);
   width: 325px;
   height: 365px;
   border: 1px solid #ddd;
   margin-left: 15px;
   border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
   .thumbnail {
     height: 100px;
-    background-color: #ddd;
+    overflow: hidden;
+    position: relative;
+    .blur {
+      width: 325px;
+      height: 100px;
+      background-position: 50%;
+      background-size: cover;
+      transform: scale(2);
+      background-repeat: no-repeat;
+      filter: blur(3px);
+    }
+    img {
+      display: flex;
+      width: 69px;
+      position: absolute;
+      left: 120px;
+      top: 13px;
+      border-radius: 0 5px 5px 0;
+    }
   }
   .info {
     height: 25px;
     display: flex;
-    padding: 15px 0 0 15px;
+    padding: 17px 0 0 15px;
     .gray {
       background-color: #efefef;
       color: #555555;
@@ -91,12 +110,48 @@ export const Road = styled.div`
     }
   }
   .titleWriter {
-    height: 65px;
+    height: 55px;
+    padding: 0 0 0 15px;
+    .title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #242424;
+      margin-top: 8px;
+    }
+    .writer {
+      font-size: 14px;
+      font-weight: 700;
+      color: #6f6f6f;
+      margin-top: 10px;
+    }
   }
   .point {
     height: 135px;
-    border-top: 1px solid #8b8b8b;
-    padding: 10px;
-    background-color: #eee;
+    border-top: 1px solid rgba(176, 179, 188, 0.3);
+    margin: 0 15px 0 15px;
+    padding: 10px 0 10px 0;
+    .recPoint {
+      font-size: 15px;
+      font-weight: 800;
+      color: #242424;
+      display: flex;
+      margin-top: 10px;
+      .material-symbols-outlined {
+        font-size: 17px;
+        color: #ffd334;
+      }
+    }
+    .points {
+      font-size: 14px;
+      font-weight: 700;
+      color: #242424;
+      margin-top: 8px;
+      background-color: #fafaf6;
+      padding: 10px 0 10px 10px;
+      border-radius: 10px;
+      p {
+        line-height: 25px;
+      }
+    }
   }
 `;

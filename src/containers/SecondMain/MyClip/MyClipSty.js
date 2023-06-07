@@ -4,7 +4,7 @@ export const ClipContainer = styled.div`
   width: 100%;
 `;
 export const Inner = styled.div`
-  max-width: 1400px;
+  max-width: 1450px;
   margin: 0 auto;
   height: 120px;
 `;
@@ -33,7 +33,7 @@ export const Clips = styled.div`
   display: flex;
   .clip {
     margin: 5px 12px 0 0;
-    width: 100px;
+    width: 120px;
     height: 70px;
     border: 1px solid #ddd;
     border-radius: 10px;

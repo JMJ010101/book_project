@@ -18,7 +18,7 @@ export const NavbarContainer = styled.div`
 
 export const Inner = styled.div`
   display: flex;
-  max-width: 1400px;
+  max-width: 1450px;
   height: 65px;
   margin: 0 auto;
   align-items: center;
