@@ -5,9 +5,9 @@ import {
   Road,
   RoadContainer,
   Roads,
+  Title,
   Writing,
 } from "./MRoadSty";
-import { Title } from "../MyClip/MyClipSty";
 import { RoadItem } from "./MRoadList";
 
 const MRoad = () => {

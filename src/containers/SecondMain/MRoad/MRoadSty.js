@@ -5,7 +5,24 @@ export const RoadContainer = styled.div``;
 export const Inner = styled.div`
   max-width: 1450px;
   margin: 0 auto;
-  height: 500px;
+  height: 520px;
+`;
+export const Title = styled.div`
+  height: 25px;
+  padding: 0 20px 5px 20px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  p {
+    font-size: 19px;
+    font-weight: 800;
+    color: #242424;
+  }
+  .material-symbols-outlined {
+    color: #8b8b8b;
+  }
 `;
 export const Writing = styled.p`
   padding: 0 20px;
