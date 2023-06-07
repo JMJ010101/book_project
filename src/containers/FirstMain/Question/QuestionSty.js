@@ -30,7 +30,7 @@ export const QuestionBox = styled.div`
 export const Questions = styled.div`
   /* height: ${(props) => (props.selected ? "auto" : "20px")}; */
   max-height: ${(props) => (props.selected ? "1000px" : "20px")};
-  transition: max-height 1s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
   margin-bottom: 20px;
   background-color: white;
   border-radius: 20px;
