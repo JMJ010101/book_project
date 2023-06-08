@@ -41,12 +41,12 @@ export const MainItems = [
   },
   {
     title: "내서재",
-    to: "/main",
+    to: "/myshelf",
     subitems: [],
   },
   {
     title: "관리",
-    to: "/main",
+    to: "/management",
     subitems: [],
   },
 ];

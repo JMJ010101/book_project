@@ -8,6 +8,9 @@ import B2B from "./pages/B2B";
 import Intro from "./pages/Intro";
 import Main from "./pages/Main";
 import Search from "./pages/Search";
+import Management from "./pages/Management";
+import Product from "./pages/Product";
+import Myshelf from "./pages/Myshelf";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
         <Route path="/intro" element={<Intro />} />
         <Route path="/main" element={<Main />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/management" element={<Management />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/myshelf" element={<Myshelf />} />
       </Routes>
     </Router>
   );
