@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
-export const RoadContainer = styled.div``;
+export const RoadContainer = styled.div`
+  width: 100%;
+`;
 
 export const Inner = styled.div`
   max-width: 1450px;

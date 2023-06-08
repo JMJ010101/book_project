@@ -6,7 +6,7 @@ import MRoad from "../containers/SecondMain/MRoad/MRoad";
 import Various from "../containers/SecondMain/Various/Various";
 import ObjectBook2 from "../containers/SecondMain/ObjectBook2/ObjectBook2";
 import Interest2 from "../containers/SecondMain/Interest2/Interest2";
-import Sliders from "../containers/SecondMain/Slider/Sliders";
+import Sliders from "../containers/SecondMain/Sliders/Sliders";
 
 const Main = () => {
   return (
