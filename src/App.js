@@ -11,6 +11,7 @@ import Search from "./pages/Search";
 import Management from "./pages/Management";
 import Product from "./pages/Product";
 import Myshelf from "./pages/Myshelf";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/management" element={<Management />} />
         <Route path="/product" element={<Product />} />
         <Route path="/myshelf" element={<Myshelf />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   );

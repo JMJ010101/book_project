@@ -3,6 +3,8 @@ import {
   Back,
   BtnBox,
   Check,
+  Notice,
+  NoticeBox,
   Option,
   Options,
   PaymentBtn,
@@ -12,7 +14,7 @@ import {
   Tag,
   TextBox,
 } from "./ProductSty";
-import { ProductItem } from "./ProductList";
+import { NoticeItem, ProductItem } from "./ProductList";
 import { useNavigate } from "react-router-dom";
 
 const ProductForm = () => {
@@ -26,6 +28,11 @@ const ProductForm = () => {
   const handleBack = () => {
     navigate("/management");
   };
+
+  const handlePayment = () => {
+    navigate("/payment");
+  };
+
   return (
     <>
       <ProductBg>
@@ -34,6 +41,10 @@ const ProductForm = () => {
           <br />
           일단 다시 시작하세요
         </p>
+        <img
+          src="https://d3udu241ivsax2.cloudfront.net/v3/images/payment/book-3d.a7da63d193c00bf2504969632ecc1f57.png"
+          alt="책"
+        />
       </ProductBg>
       <Back>
         <span onClick={handleBack} class="material-symbols-outlined">
@@ -71,9 +82,23 @@ const ProductForm = () => {
             </Options>
           </>
         ))}
+        <NoticeBox>
+          {NoticeItem.map((item) => (
+            <Notice key={item.title}>
+              <div className="title">{item.title}</div>
+              {item.content.map((i) => (
+                <div key={item.title} className="content">
+                  {i.con}
+                </div>
+              ))}
+            </Notice>
+          ))}
+        </NoticeBox>
       </ProductContainer>
       <BtnBox>
-        <PaymentBtn>0원으로 시작하기</PaymentBtn>
+        <button onClick={handlePayment}>
+          <p>0원으로 시작하기</p>
+        </button>
       </BtnBox>
     </>
   );
