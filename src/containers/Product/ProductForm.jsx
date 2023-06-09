@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import {
   Back,
+  Border,
   BtnBox,
   Check,
   Notice,
   NoticeBox,
   Option,
   Options,
-  PaymentBtn,
   Price,
   ProductBg,
   ProductContainer,
@@ -61,10 +61,8 @@ const ProductForm = () => {
             </TextBox>
             <Options>
               {item.options.map((i) => (
-                <Option
-                  onClick={() => handleOptionClick(i.price)}
-                  selected={selectOption === i.price}
-                >
+                <Option onClick={() => handleOptionClick(i.price)}>
+                  <Border selected={selectOption === i.price} />
                   <Check selected={selectOption === i.price} />
                   <Price key={i.price}>
                     <div className="text1">{i.period}</div>

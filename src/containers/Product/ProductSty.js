@@ -40,7 +40,6 @@ export const ProductContainer = styled.div`
   margin-bottom: 20px;
 `;
 export const TextBox = styled.div`
-  margin: 0 0 20px;
   padding: 40px 0 20px 20px;
   .text1 {
     color: #242424;
@@ -59,25 +58,39 @@ export const TextBox = styled.div`
 
 export const Options = styled.div`
   height: 200px;
-  padding: 0 8px 0 20px;
+  padding: 0 20px;
   display: flex;
+  justify-content: space-between;
 `;
 
 export const Option = styled.div`
   width: 49.3%;
-  border: ${(props) => (props.selected ? "4px solid #ffeb60" : "")};
+  height: 200px;
+  box-sizing: border-box;
   border-radius: 15px;
-  margin-right: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  /* box-sizing: border-box; */
+  position: relative;
+`;
+export const Border = styled.div`
+  border: ${(props) =>
+    props.selected ? "4px solid #ffeb60" : "1px solid white"};
+  border-radius: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 export const Check = styled.div`
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   border: ${(props) =>
-    props.selected ? "4px solid #ffeb60" : "1px solid #dfdfdf"};
+    props.selected ? "6px solid #ffeb60" : "2px solid #dfdfdf"};
   border-radius: 20px;
+  transition: 0.2s ease;
+  box-sizing: border-box;
 `;
 export const Price = styled.div`
   margin: 15px 0 20px;
@@ -85,7 +98,7 @@ export const Price = styled.div`
   .text1 {
     color: #555555;
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 5px;
   }
   .text2 {
