@@ -130,7 +130,6 @@ export const PayBox = styled.div`
   box-sizing: border-box;
   cursor: pointer;
   img {
-    /* width: 40px; */
     height: 18px;
     margin-right: 10px;
   }
@@ -144,3 +143,7 @@ export const PayBox = styled.div`
 export const Agree = styled.div`
   margin-bottom: 35px;
 `;
+
+export const All = styled.div``;
+
+export const One = styled.div``;

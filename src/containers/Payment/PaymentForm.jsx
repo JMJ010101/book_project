@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Notice } from "../Product/ProductSty";
 import {
   Agree,
+  All,
   Box,
   Fee,
   Header,
@@ -9,6 +10,7 @@ import {
   Inner,
   Method,
   Methods,
+  One,
   PayBox,
   Price,
   Title,
@@ -104,6 +106,16 @@ const PaymentForm = () => {
         </Method>
         <Agree>
           <Title>약관동의</Title>
+          <Box>
+            <All>
+              <button></button>
+              <p></p>
+            </All>
+            <One>
+              <button></button>
+              <p></p>
+            </One>
+          </Box>
         </Agree>
         <Notice>유의사항</Notice>
       </Inner>
