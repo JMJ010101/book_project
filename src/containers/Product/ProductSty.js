@@ -5,6 +5,8 @@ export const ProductBg = styled.div`
   margin: 0 auto;
   top: 0;
   position: sticky;
+  display: flex;
+  justify-content: space-between;
   background-color: #ffeb60;
   z-index: -1;
   p {
@@ -29,17 +31,17 @@ export const Back = styled.div`
 `;
 
 export const ProductContainer = styled.div`
-  height: 1000px;
+  height: max-content;
   max-width: 1450px;
   margin: 0 auto;
   margin-top: -90px;
   background-color: white;
   border-radius: 40px 40px 0 0;
-  border: 1px solid green;
+  margin-bottom: 20px;
 `;
 export const TextBox = styled.div`
-  margin: 40px 0 20px;
-  padding: 0 20px;
+  margin: 0 0 20px;
+  padding: 40px 0 20px 20px;
   .text1 {
     color: #242424;
     font-size: 20px;
@@ -113,21 +115,42 @@ export const Tag = styled.div`
     margin-top: 8px;
   }
 `;
-
-export const BtnBox = styled.div`
-  width: 1450px;
-  margin: 0 auto;
+export const NoticeBox = styled.div`
+  padding-bottom: 60px;
 `;
 
-export const PaymentBtn = styled.button`
+export const Notice = styled.div`
+  padding: 20px 0 8px 20px;
+  flex-wrap: wrap;
+  .title {
+    color: #555555;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .content {
+    color: #8b8b8b;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 23px;
+  }
+`;
+
+export const BtnBox = styled.div`
+  width: 100%;
+  height: 60px;
   z-index: 9;
   position: fixed;
   bottom: 0;
-  height: 60px;
-  width: 1450px;
-  border: none;
-  background-color: #ffeb60;
-  font-size: 16px;
-  color: #242424;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  button {
+    height: 60px;
+    width: 1450px;
+    border: none;
+    background-color: #ffeb60;
+    font-size: 16px;
+    color: #242424;
+    cursor: pointer;
+  }
 `;
