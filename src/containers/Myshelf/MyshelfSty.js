@@ -6,7 +6,7 @@ export const MyshelfBg = styled.div`
 `;
 
 export const TextDiv = styled.div`
-  margin-top: 320px;
+  margin-top: 250px;
   text-align: center;
   color: #242424;
   .first {

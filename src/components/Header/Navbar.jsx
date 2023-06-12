@@ -1,6 +1,3 @@
-import React from "react";
-import NavbarForm from "./NavbarForm";
-
 export const MainItems = [
   {
     title: "투데이",
@@ -37,22 +34,13 @@ export const MainItems = [
   {
     title: "검색",
     to: "/search",
-    subitems: [],
   },
   {
     title: "내서재",
     to: "/myshelf",
-    subitems: [],
   },
   {
     title: "관리",
     to: "/management",
-    subitems: [],
   },
 ];
-
-const Navbar = () => {
-  return <NavbarForm></NavbarForm>;
-};
-
-export default Navbar;

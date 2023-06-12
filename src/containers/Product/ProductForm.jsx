@@ -94,7 +94,7 @@ const ProductForm = () => {
         </NoticeBox>
       </ProductContainer>
       <BtnBox>
-        <button onClick={handlePayment}>
+        <button className="button2" onClick={handlePayment}>
           <p>0원으로 시작하기</p>
         </button>
       </BtnBox>

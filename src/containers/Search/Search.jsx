@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { bookApi } from "../../api/bookApi";
 import Book from "./Book";
-import * as S from "./searchStyle";
+import * as S from "./searchSty";
 
 const Search = () => {
   const [searchData, setSearchData] = useState("");
@@ -44,16 +44,22 @@ const Search = () => {
   };
 
   return (
-    <main>
+    <>
       <S.Fixed>
-        <S.Header>
-          <S.SearchBar>
-            <button onClick={openModal}>{filter}</button>
-            <input onChange={changeInput} placeholder="검색어를 입력하세요" />
-
-            <button onClick={searchBook}>{searching ? "검색 중.." : "검색"}</button>
-          </S.SearchBar>
-        </S.Header>
+        <S.Search>
+          <button onClick={openModal}>
+            {filter}
+            <span class="material-symbols-outlined">keyboard_arrow_down</span>
+          </button>
+          <input onChange={changeInput} placeholder="검색어를 입력하세요" />
+          <button onClick={searchBook}>
+            {searching ? (
+              "검색 중.."
+            ) : (
+              <span class="material-icons">search</span>
+            )}
+          </button>
+        </S.Search>
       </S.Fixed>
       <S.BookGrid>
         {data.map((book) => (
@@ -75,7 +81,7 @@ const Search = () => {
           </S.ModalContent>
         </S.ModalWrapper>
       )}
-    </main>
+    </>
   );
 };
 

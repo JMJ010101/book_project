@@ -9,6 +9,14 @@ export const NavbarBox = styled.div`
   top: 0;
   z-index: 9;
 `;
+export const NavbarBox2 = styled.div`
+  width: 100%;
+  position: fixed;
+  height: 65px;
+  background-color: white;
+  top: 0;
+  z-index: 9;
+`;
 export const NavbarContainer = styled.div`
   width: 100%;
   position: fixed;
@@ -62,6 +70,7 @@ export const NavbarContainer2 = styled.div`
   width: 100%;
   position: fixed;
   margin-top: 40px;
+  height: max-content;
   border-bottom: 1px solid #ddd;
 `;
 
