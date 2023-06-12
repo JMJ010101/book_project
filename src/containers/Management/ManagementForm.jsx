@@ -13,7 +13,7 @@ import {
 } from "./ManagementSty";
 import PhoneIcon from "../../images/phoneMember.png";
 import { ManageList } from "./ManageList";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ManagementForm = () => {
   const navigate = useNavigate();

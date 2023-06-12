@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 export const Inner = styled.div`
   max-width: 1450px;
   margin: 0 auto;
-  margin-top: 110px;
+  margin-top: 100px;
 `;
 
 export const PhoneUser = styled.div`
@@ -24,11 +24,13 @@ export const PhoneUser = styled.div`
 `;
 
 export const UserName = styled.div`
-  font-size: 19px;
-  font-weight: 800;
-  color: #242424;
-  line-height: 24px;
-  margin: 0 20px 0 20px;
+  p {
+    font-size: 19px;
+    font-weight: 800;
+    color: #242424;
+    line-height: 24px;
+    margin: 0 20px 0 20px;
+  }
 `;
 export const Subscription = styled.div`
   border: 1px solid #dfdfdf;
@@ -101,7 +103,6 @@ export const MenuContainer = styled.div`
 export const Menu = styled.div`
   .title {
     padding: 0 20px;
-    width: 100%;
     height: 30px;
     background-color: #f7f7f7;
     color: #8b8b8b;
@@ -112,9 +113,6 @@ export const Menu = styled.div`
   }
   .name {
     padding: 0 20px;
-    color: #242424;
-    font-size: 16px;
-    font-weight: 700;
     height: 45px;
     display: flex;
     align-items: center;
@@ -123,6 +121,11 @@ export const Menu = styled.div`
     .material-symbols-outlined {
       font-size: 16px;
       color: #6f6f6f;
+    }
+    p {
+      color: #242424;
+      font-size: 16px;
+      font-weight: 700;
     }
   }
 `;

@@ -1,11 +1,11 @@
 import React from "react";
 import ManagementForm from "../containers/Management/ManagementForm";
-import Navbar from "../components/Header/Navbar";
+import NavbarForm2 from "../components/Header/NavbarForm2";
 
 const Management = () => {
   return (
     <>
-      <Navbar />
+      <NavbarForm2 />
       <ManagementForm />
     </>
   );

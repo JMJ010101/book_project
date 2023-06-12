@@ -11,6 +11,7 @@ export const BookSection = styled.section`
 export const BookImage = styled.img`
   height: 100%;
   margin-right: 30px;
+  cursor: pointer;
 `;
 
 export const RightSection = styled.div`

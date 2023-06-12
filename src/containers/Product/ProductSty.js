@@ -38,9 +38,10 @@ export const ProductContainer = styled.div`
   background-color: white;
   border-radius: 40px 40px 0 0;
   margin-bottom: 20px;
+  padding: 0 20px;
 `;
 export const TextBox = styled.div`
-  padding: 40px 0 20px 20px;
+  padding: 40px 0 20px;
   .text1 {
     color: #242424;
     font-size: 20px;
@@ -58,7 +59,6 @@ export const TextBox = styled.div`
 
 export const Options = styled.div`
   height: 200px;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
 `;
@@ -133,7 +133,7 @@ export const NoticeBox = styled.div`
 `;
 
 export const Notice = styled.div`
-  padding: 20px 0 8px 20px;
+  padding: 20px 0 8px;
   flex-wrap: wrap;
   .title {
     color: #555555;
@@ -162,8 +162,25 @@ export const BtnBox = styled.div`
     width: 1450px;
     border: none;
     background-color: #ffeb60;
-    font-size: 16px;
-    color: #242424;
     cursor: pointer;
+    opacity: 0.4;
+    p {
+      font-size: 17px;
+      color: #242424;
+      letter-spacing: -1.2px;
+    }
+  }
+  .button2 {
+    height: 60px;
+    width: 1450px;
+    border: none;
+    background-color: #ffeb60;
+    cursor: pointer;
+    opacity: 1;
+    p {
+      font-size: 17px;
+      color: #242424;
+      letter-spacing: -1.2px;
+    }
   }
 `;

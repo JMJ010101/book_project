@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Notice } from "../Product/ProductSty";
+import { BtnBox, Notice } from "../Product/ProductSty";
 import {
   Agree,
   All,
@@ -10,6 +10,8 @@ import {
   Inner,
   Method,
   Methods,
+  ModalContent,
+  ModalWrapper,
   One,
   PayBox,
   Price,
@@ -17,11 +19,22 @@ import {
   Total,
 } from "./PaymentSty";
 import { useNavigate } from "react-router-dom";
-import { MethodItem } from "./PaymentList";
+import {
+  AgreeItem,
+  InfoItem,
+  MethodItem,
+  ModalItem,
+  NoticeItems,
+  PriceItem,
+} from "./PaymentList";
 
 const PaymentForm = () => {
   const navigate = useNavigate();
   const [selectMethod, setSelectMethod] = useState("카카오페이");
+  const [clickAll, setClickAll] = useState(false);
+  const [clickOne, setClickOne] = useState(false);
+  const [clickTwo, setClickTwo] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleMethodClick = (method) => {
     setSelectMethod(method);
@@ -30,6 +43,41 @@ const PaymentForm = () => {
   const handleBack = () => {
     navigate("/product");
   };
+
+  const handleClickAll = () => {
+    setClickAll(!clickAll);
+    setClickOne(!clickAll);
+    setClickTwo(!clickAll);
+  };
+
+  const handleClickOne = () => {
+    setClickOne(!clickOne);
+    if (clickAll) {
+      setClickAll(false);
+    }
+    if (clickTwo && !clickAll) {
+      setClickAll(true);
+    }
+  };
+
+  const handleClickTwo = () => {
+    setClickTwo(!clickTwo);
+    if (clickAll) {
+      setClickAll(false);
+    }
+    if (clickOne && !clickAll) {
+      setClickAll(true);
+    }
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <Header>
@@ -42,18 +90,12 @@ const PaymentForm = () => {
         <Info>
           <Title>구독정보</Title>
           <Box>
-            <div>
-              <span className="left">구독 상품</span>
-              <span className="right">전자책 연 정기구독</span>
-            </div>
-            <div>
-              <span className="left">구독 기간</span>
-              <span className="right">2023.06.09 ~ 2023.07.09</span>
-            </div>
-            <div>
-              <span className="left">다음 결제일</span>
-              <span className="right">2023.07.09</span>
-            </div>
+            {InfoItem.map((item) => (
+              <div key={item.left}>
+                <span className="left">{item.left}</span>
+                <span className="right">{item.right}</span>
+              </div>
+            ))}
           </Box>
         </Info>
         <Fee>
@@ -64,14 +106,12 @@ const PaymentForm = () => {
                 <span>상품 가격</span>
                 <span>99,000원</span>
               </div>
-              <div className="price2">
-                <span>┗ 전자책 연 정기구독</span>
-                <span>118,800원</span>
-              </div>
-              <div className="price2">
-                <span>┗ 연 정기구독 할인</span>
-                <span>19,800원</span>
-              </div>
+              {PriceItem.map((item) => (
+                <div key={item.left} className="price2">
+                  <span>{item.left}</span>
+                  <span>{item.right}</span>
+                </div>
+              ))}
             </Price>
             <Total>
               <span>총 결제금액</span>
@@ -106,19 +146,102 @@ const PaymentForm = () => {
         </Method>
         <Agree>
           <Title>약관동의</Title>
-          <Box>
-            <All>
-              <button></button>
-              <p></p>
-            </All>
-            <One>
-              <button></button>
-              <p></p>
-            </One>
-          </Box>
+          {AgreeItem.map((item) => (
+            <Box>
+              <All onClick={() => handleClickAll()}>
+                {!clickAll ? (
+                  <button />
+                ) : (
+                  <button className="button2">
+                    <span class="material-symbols-outlined">done</span>
+                  </button>
+                )}
+                <p>{item.p1}</p>
+              </All>
+              <One>
+                <div className="oneDiv" onClick={() => handleClickOne()}>
+                  <div className="ones">
+                    {!clickOne ? (
+                      <button />
+                    ) : (
+                      <button className="button2">
+                        <span class="material-symbols-outlined">done</span>
+                      </button>
+                    )}
+                    <p>{item.p2}</p>
+                  </div>
+                  <p className="more" onClick={openModal}>
+                    보기
+                  </p>
+                </div>
+                <div className="oneDiv" onClick={() => handleClickTwo()}>
+                  <div className="ones">
+                    {!clickTwo ? (
+                      <button />
+                    ) : (
+                      <button className="button2">
+                        <span class="material-symbols-outlined">done</span>
+                      </button>
+                    )}
+                    <p>{item.p3}</p>
+                  </div>
+                  <p className="more" onClick={openModal}>
+                    보기
+                  </p>
+                </div>
+              </One>
+            </Box>
+          ))}
         </Agree>
-        <Notice>유의사항</Notice>
+        <Notice style={{ margin: "-20px 0 60px" }}>
+          {NoticeItems.map((item) => (
+            <>
+              <div key={item.title} className="title">
+                {item.title}
+              </div>
+              {item.content.map((i) => (
+                <div key={item.title} className="content">
+                  {i.con}
+                </div>
+              ))}
+            </>
+          ))}
+        </Notice>
       </Inner>
+      <BtnBox>
+        {!clickAll ? (
+          <button>
+            <p>0원 결제하기</p>
+          </button>
+        ) : (
+          <button className="button2">
+            <p>0원 결제하기</p>
+          </button>
+        )}
+      </BtnBox>
+      {isModalOpen && (
+        <ModalWrapper>
+          <ModalContent>
+            {ModalItem.map((item) => (
+              <>
+                <h2>{item.title}</h2>
+                <ul>
+                  <li>{item.text}</li>
+                </ul>
+                {item.content.map((i) => (
+                  <ul>
+                    <li>{i.num}</li>
+                    {i.contents.map((con) => (
+                      <li>{con.text}</li>
+                    ))}
+                  </ul>
+                ))}
+                <button onClick={closeModal}>확인</button>
+              </>
+            ))}
+          </ModalContent>
+        </ModalWrapper>
+      )}
     </>
   );
 };

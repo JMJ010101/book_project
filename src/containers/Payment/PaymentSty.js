@@ -144,6 +144,136 @@ export const Agree = styled.div`
   margin-bottom: 35px;
 `;
 
-export const All = styled.div``;
+export const All = styled.div`
+  padding-bottom: 10px;
+  display: flex;
+  width: max-content;
+  cursor: pointer;
+  button {
+    width: 23px;
+    height: 23px;
+    border-radius: 20px;
+    border: 2px solid #dfdfdf;
+    background-color: transparent;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  .button2 {
+    width: 23px;
+    height: 23px;
+    border-radius: 20px;
+    border: 2px solid #ffeb60;
+    background-color: #ffeb60;
+    margin-right: 8px;
+    cursor: pointer;
+    .material-symbols-outlined {
+      font-size: 21px;
+      font-weight: 600;
+      color: #242424;
+      margin: 0 0 0 -6px;
+    }
+  }
+  p {
+    font-size: 16px;
+    color: #8b8b8b;
+    font-weight: 700;
+  }
+`;
 
-export const One = styled.div``;
+export const One = styled.div`
+  border-top: 1px solid #dfdfdf;
+  padding-top: 5px;
+  cursor: pointer;
+  .oneDiv {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    .ones {
+      display: flex;
+    }
+    button {
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      border: 2px solid #dfdfdf;
+      background-color: transparent;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    .button2 {
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      border: 2px solid #ffeb60;
+      background-color: #ffeb60;
+      margin-right: 8px;
+      cursor: pointer;
+      .material-symbols-outlined {
+        font-size: 21px;
+        font-weight: 600;
+        color: #242424;
+        margin: -3px 0 0 -8px;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+    color: #8b8b8b;
+    font-weight: 700;
+  }
+  .more {
+    text-decoration: underline;
+  }
+`;
+
+export const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+`;
+
+export const ModalContent = styled.div`
+  background-color: white;
+  border-radius: 7px;
+  width: 330px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  overflow: hidden;
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #242424;
+    margin: 27px 0 18px;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+  ul {
+    margin: 0 24px 15px 24px;
+    li {
+      cursor: pointer;
+      display: flex;
+      color: #6f6f6f;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 18px;
+    }
+  }
+  button {
+    margin-top: 15px;
+    background-color: #ffeb60;
+    color: #242424;
+    border: none;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+  }
+`;

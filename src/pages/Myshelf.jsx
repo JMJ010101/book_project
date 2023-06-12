@@ -1,11 +1,11 @@
 import React from "react";
 import MyshelfForm from "../containers/Myshelf/MyshelfForm";
-import Navbar from "../components/Header/Navbar";
+import NavbarForm2 from "../components/Header/NavbarForm2";
 
 const Myshelf = () => {
   return (
     <>
-      <Navbar />
+      <NavbarForm2 />
       <MyshelfForm />
     </>
   );
