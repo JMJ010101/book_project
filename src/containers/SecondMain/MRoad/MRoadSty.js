@@ -8,6 +8,7 @@ export const Inner = styled.div`
   max-width: 1450px;
   margin: 0 auto;
   height: 520px;
+  overflow: hidden;
 `;
 export const Title = styled.div`
   height: 25px;

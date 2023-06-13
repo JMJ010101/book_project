@@ -75,7 +75,7 @@ const Search = () => {
               <li onClick={() => selectFilter("책 제목")}>책 제목</li>
               <li onClick={() => selectFilter("저자명")}>저자명</li>
               <li onClick={() => selectFilter("출판사명")}>출판사명</li>
-              <li onClick={() => selectFilter("리더명")}>리더명</li>
+              <li onClick={() => selectFilter("번역가명")}>번역가명</li>
             </ul>
             <button onClick={closeModal}>닫기</button>
           </S.ModalContent>
