@@ -6,6 +6,7 @@ export const SlideContainer = styled.div`
   margin-top: 106px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 `;
 export const SlideContainer2 = styled.div`
   width: 100%;
@@ -14,6 +15,8 @@ export const SlideContainer2 = styled.div`
   position: absolute;
   top: 35px;
   overflow: hidden;
+  cursor: pointer;
+  z-index: 8;
 `;
 
 export const ContainerBlur = styled.div`

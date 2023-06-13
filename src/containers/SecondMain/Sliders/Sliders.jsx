@@ -1,29 +1,24 @@
 import { Color, Inner, Texts } from "./SliderSty";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { EffectCoverflow, Navigation, Pagination } from "swiper";
+import "./swiper-bundle.css";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Sliders = () => {
   return (
     <>
       <Inner>
         <Swiper
-          // effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
+          spaceBetween={15}
           slidesPerView={2}
-          // coverflowEffect={{
-          //   rotate: 50,
-          //   stretch: 0,
-          //   depth: 100,
-          //   modifier: 1,
-          //   slideShadows: true,
-          // }}
           pagination={true}
           navigation={true}
-          modules={[EffectCoverflow, Navigation, Pagination]}
+          autoplay={{ delay: 5000 }}
+          modules={[Navigation, Pagination]}
           className="mySwiper"
         >
           <SwiperSlide>

@@ -70,17 +70,17 @@ export const ModalWrapper = styled.div`
 export const ModalContent = styled.div`
   background-color: white;
   border-radius: 7px;
-  width: 320px;
+  width: 360px;
   height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
   h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 800;
     color: #242424;
-    margin: 23px 0 20px;
+    margin: 28px 0 20px;
     letter-spacing: -1px;
   }
   ul {
@@ -88,25 +88,24 @@ export const ModalContent = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 20px 22px 20px;
+    margin: 0 24px 22px 24px;
     li {
       border: 1px solid #dfdfdf;
-      width: 132px;
-      height: 42px;
-      margin-bottom: 7px;
-      border-radius: 7px;
+      width: 149px;
+      height: 47px;
+      margin-bottom: 8px;
+      border-radius: 8px;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #8b8b8b;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       box-sizing: border-box;
       &:hover {
-        border: 2px solid #ffeb60;
+        border: 3px solid #ffeb60;
         text-decoration: underline;
-        transition: 0.2s ease;
       }
     }
   }
@@ -115,7 +114,7 @@ export const ModalContent = styled.div`
     color: #242424;
     border: none;
     width: 100%;
-    height: 50px;
+    height: 58px;
     cursor: pointer;
   }
 `;

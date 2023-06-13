@@ -56,7 +56,7 @@ export const LeftBox = styled.div`
 
 export const MainMenu = styled.div`
   font-size: 20px;
-  font-weight: ${(props) => (props.selected ? "800" : "400")};
+  font-weight: ${(props) => (props.selected ? "800" : "600")};
   padding: 10px 25px;
   cursor: pointer;
 `;
@@ -84,7 +84,7 @@ export const Inner2 = styled.div`
 
 export const SubMenu = styled.div`
   font-size: 16px;
-  font-weight: ${(props) => (props.selected ? "800" : "400")};
+  font-weight: ${(props) => (props.selected ? "800" : "600")};
   padding: 11px 10px;
   border-bottom: ${(props) => (props.selected ? "3px solid #242424" : "none")};
   cursor: pointer;

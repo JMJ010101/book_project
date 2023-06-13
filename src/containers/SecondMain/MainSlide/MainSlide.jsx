@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Boxes,
   ContainerBlur,
@@ -9,6 +10,12 @@ import {
   SlideImg,
   TextBox,
 } from "./MainSlideSty";
+import "swiper/css";
+import "swiper/css/navigation";
+import "./swiper-bundle.css";
+import SwiperCore, { Navigation, Autoplay } from "swiper";
+
+SwiperCore.use([Navigation, Autoplay]);
 
 const MainSlide = () => {
   const [moveBar1Width, setMoveBar1Width] = useState("1px");
@@ -26,10 +33,29 @@ const MainSlide = () => {
 
   return (
     <>
-      <SlideContainer>
-        <ContainerBlur></ContainerBlur>
-        <SlideImg></SlideImg>
-      </SlideContainer>
+      <Swiper
+        slidesPerView={1}
+        centeredSlides={true}
+        navigation={true}
+        autoplay={{ delay: 5000 }}
+        modules={[Navigation, Autoplay]}
+        // style={{ overflow: "visible" }}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <SlideContainer>
+            <ContainerBlur></ContainerBlur>
+            <SlideImg></SlideImg>
+          </SlideContainer>
+        </SwiperSlide>
+        <SwiperSlide>
+          <SlideContainer>
+            <ContainerBlur></ContainerBlur>
+            <SlideImg></SlideImg>
+          </SlideContainer>
+        </SwiperSlide>
+      </Swiper>
+
       <SlideContainer2>
         <Boxes>
           <ImgBox>

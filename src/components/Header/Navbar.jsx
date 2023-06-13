@@ -19,7 +19,7 @@ export const MainItems = [
   },
   {
     title: "피드",
-    to: "/main",
+    to: "/feed",
     subitems: [
       {
         name: "추천",

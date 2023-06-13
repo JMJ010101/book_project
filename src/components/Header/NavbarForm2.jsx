@@ -9,11 +9,12 @@ import {
 } from "./NavbarSty";
 import Logo from "../../images/MainLogo.png";
 import { MainItems } from "./Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const NavbarForm2 = () => {
-  const [selectMenu, setSelectMenu] = useState("투데이");
+  const [selectMenu, setSelectMenu] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleMenuClick = (menu) => {
     setSelectMenu(menu);
@@ -24,6 +25,17 @@ const NavbarForm2 = () => {
     alert("로그아웃 성공");
     navigate("/");
   };
+
+  // Update the selected menu based on the current path
+  React.useEffect(() => {
+    const pathname = location.pathname;
+    const selectedItem = MainItems.find((item) => item.to === pathname);
+    if (selectedItem) {
+      setSelectMenu(selectedItem.title);
+    }
+    console.log(selectedItem);
+  }, [location.pathname]);
+
   return (
     <NavbarBox2>
       <NavbarContainer>
