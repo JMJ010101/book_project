@@ -13,6 +13,7 @@ import Product from "./pages/Product";
 import Myshelf from "./pages/Myshelf";
 import Payment from "./pages/Payment";
 import Feed from "./pages/Feed";
+import BookDetail from "./pages/BookDetail";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/myshelf" element={<Myshelf />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/feed" element={<Feed />} />
+        <Route path="/bookDetail" element={<BookDetail />} />
       </Routes>
     </Router>
   );

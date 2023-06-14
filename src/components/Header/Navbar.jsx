@@ -20,16 +20,6 @@ export const MainItems = [
   {
     title: "피드",
     to: "/feed",
-    subitems: [
-      {
-        name: "추천",
-        idx: 1,
-      },
-      {
-        name: "팔로잉",
-        idx: 2,
-      },
-    ],
   },
   {
     title: "검색",

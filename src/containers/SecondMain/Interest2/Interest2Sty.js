@@ -115,7 +115,7 @@ export const Posts = styled.div`
 `;
 
 export const Post = styled.div`
-  width: 367px;
+  width: 388px;
   height: 100%;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.06), 2px 2px 10px rgba(0, 0, 0, 0.04);
   border-radius: 15px;
@@ -142,12 +142,22 @@ export const Post = styled.div`
       color: #242424;
       word-spacing: -2px;
       margin-bottom: 5px;
+      height: 17px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .content {
       font-size: 13px;
       font-weight: 800;
       color: #6f6f6f;
       word-spacing: -2px;
+      height: 15px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 `;
