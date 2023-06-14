@@ -2,7 +2,7 @@ export const ManageList = [
   {
     title: "기본 설정",
     content: [
-      { name: "내 정보 관리", to: "/management" },
+      { name: "내 정보 관리", to: "/management/myinfo" },
       { name: "알림 설정", to: "/management" },
       { name: "19세미만 설정 관리", to: "/management" },
     ],
