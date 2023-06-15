@@ -1,36 +1,64 @@
 import { styled } from "styled-components";
 
-export const MyshelfBg = styled.div`
-  /* background-color: #f7f7f7; */
+export const CategoryBox = styled.div`
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
 `;
+
+export const CateInner = styled.div`
+  max-width: 1450px;
+  margin: 0 auto;
+`;
+
+export const BtnBox = styled.div`
+  margin-left: 120px;
+  padding: 17px 0;
+`;
+
+export const CategoryBtn = styled.button`
+  background-color: ${(props) => (props.selected ? "#333333" : "f7f7f7")};
+  color: ${(props) => (props.selected ? "#fff" : "#242424")};
+  border: none;
+  border-radius: 20px;
+  padding: 7px 15px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-right: 10px;
+  cursor: pointer;
+`;
+
 export const Inner = styled.div`
-  width: 100%;
-  height: 100%;
+  max-width: 1450px;
+  border: 1px solid #dfdfdf;
+  margin: 0 auto;
+  background-color: #f6f6f6;
+  margin-top: -2px;
 `;
 
-export const TextDiv = styled.div`
-  margin-top: 320px;
+export const BookContainer = styled.div`
+  height: max-content;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 35px 45px;
+`;
+
+export const Title = styled.p`
   text-align: center;
-  color: #242424;
-  letter-spacing: -1px;
-  .first {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  .second {
-    font-size: 14px;
-    font-weight: 700;
-  }
+  font-size: 25px;
+  font-weight: 800;
+  color: #333333;
+  padding: 10px;
+  margin-bottom: 30px;
 `;
 
-export const ImageDiv = styled.div`
-  width: 100%;
-  position: fixed;
-  bottom: 0;
+export const Books = styled.div`
   display: flex;
-  justify-content: center;
-  img {
-    box-shadow: 20px 0px 10px rgba(0, 0, 0, 0.1);
-  }
+  align-items: end;
+  flex-wrap: wrap;
+`;
+
+export const ShelfBox = styled.div`
+  height: 500px;
+  background-color: #fff;
 `;

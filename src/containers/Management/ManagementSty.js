@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 export const Inner = styled.div`
   max-width: 1450px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 40px;
 `;
 
 export const PhoneUser = styled.div`
