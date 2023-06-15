@@ -11,7 +11,7 @@ export const NavbarBox = styled.div`
 `;
 export const NavbarBox2 = styled.div`
   width: 100%;
-  position: fixed;
+  position: sticky;
   height: 65px;
   background-color: white;
   top: 0;
@@ -19,7 +19,7 @@ export const NavbarBox2 = styled.div`
 `;
 export const NavbarContainer = styled.div`
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   border-bottom: 1px solid #ddd;
 `;
@@ -68,8 +68,8 @@ export const Links = styled(Link)`
 
 export const NavbarContainer2 = styled.div`
   width: 100%;
-  position: fixed;
-  margin-top: 40px;
+  position: sticky;
+  margin-top: -26px;
   height: max-content;
   border-bottom: 1px solid #ddd;
 `;

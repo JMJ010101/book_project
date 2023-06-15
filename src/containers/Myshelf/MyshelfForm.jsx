@@ -1,24 +1,70 @@
-import React from "react";
-import { ImageDiv, Inner, MyshelfBg, TextDiv } from "./MyshelfSty";
+import React, { useState } from "react";
+import {
+  BookContainer,
+  Books,
+  BtnBox,
+  CateInner,
+  CategoryBox,
+  CategoryBtn,
+  Inner,
+  Title,
+} from "./MyshelfSty";
+import { CategoryItem, FavoriteItem, ShelfItem } from "./MyshelfList";
+import { BookBox } from "./../BookDetail/BookDetailSty";
 
 const MyshelfForm = () => {
+  const [selectCategory, setSelectCategory] = useState("내 서재");
+
+  const handleCategory = (category) => {
+    setSelectCategory(category);
+  };
   return (
-    <MyshelfBg>
+    <>
+      <CategoryBox>
+        <CateInner>
+          <BtnBox>
+            {CategoryItem.map((cate) => (
+              <CategoryBtn
+                onClick={() => handleCategory(cate.name)}
+                selected={selectCategory === cate.name}
+              >
+                {cate.name}
+              </CategoryBtn>
+            ))}
+          </BtnBox>
+        </CateInner>
+      </CategoryBox>
       <Inner>
-        <TextDiv>
-          <p className="first">진짜 내 서재를 만나세요</p>
-          <p className="second">
-            인생책부터 독서노트까지 나의 모든 독서활동을 한 곳에서
-          </p>
-        </TextDiv>
-        <ImageDiv>
-          <img
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/myshelf/myshelf-pc.e63625aba07f72f40bb36ab1a6cd97f1.jpg"
-            alt="내 서재 이미지"
-          />
-        </ImageDiv>
+        <BookContainer>
+          <Title>내 서재 목록</Title>
+          <Books>
+            {ShelfItem.map((item) => (
+              <BookBox>
+                <div className="thumbnail">
+                  <img src={item.src} alt="책 표지" />
+                </div>
+                <div className="title">{item.title}</div>
+                <div className="author">{item.author}</div>
+              </BookBox>
+            ))}
+          </Books>
+        </BookContainer>
+        <BookContainer>
+          <Title>즐겨찾기 목록</Title>
+          <Books>
+            {FavoriteItem.map((item) => (
+              <BookBox>
+                <div className="thumbnail">
+                  <img src={item.src} alt="책 표지" />
+                </div>
+                <div className="title">{item.title}</div>
+                <div className="author">{item.author}</div>
+              </BookBox>
+            ))}
+          </Books>
+        </BookContainer>
       </Inner>
-    </MyshelfBg>
+    </>
   );
 };
 

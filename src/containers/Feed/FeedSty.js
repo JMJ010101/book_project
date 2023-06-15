@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const Inner = styled.div`
   max-width: 1450px;
   margin: 0 auto;
-  margin-top: 65px;
+  margin-top: 10px;
   padding: 25px 5px 25px 20px;
   justify-content: space-around;
 `;
