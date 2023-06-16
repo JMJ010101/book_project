@@ -9,6 +9,7 @@ import {
   Introduction,
   LeftBox,
   More,
+  MoreInfo,
   Options,
   ReadButton,
   RightBox,
@@ -46,6 +47,7 @@ const BookDetailForm = () => {
                   <p className="title">{item.title}</p>
                   <p className="author">{item.author}</p>
                 </div>
+                <MoreInfo></MoreInfo>
               </Info>
             </BookContainer>
             <Introduction>
