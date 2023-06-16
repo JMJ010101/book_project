@@ -50,8 +50,11 @@ export const Search = styled.div`
 
 export const BookGrid = styled.div`
   display: grid;
-  justify-items: center;
-  margin-top: 300px;
+  width: 870px;
+  grid-template-columns: repeat(5, 1fr); // 가로줄에 5개의 열(column) 생성
+  grid-auto-rows: minmax(100px, auto); // 셀의 높이 자동 조정
+  margin: 100px auto;
+  padding: 10px;
 `;
 
 export const ModalWrapper = styled.div`
@@ -117,4 +120,14 @@ export const ModalContent = styled.div`
     height: 58px;
     cursor: pointer;
   }
+`;
+
+export const ShowMoreButton = styled.button`
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 `;

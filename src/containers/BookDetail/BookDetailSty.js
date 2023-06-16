@@ -119,6 +119,23 @@ export const Info = styled.div`
   }
 `;
 
+export const MoreInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .title {
+    color: #242424;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 10px 0 12px;
+  }
+  .author {
+    color: #8b8b8b;
+    font-size: 12px;
+    font-weight: 700;
+  }
+`;
+
 export const Introduction = styled.div`
   height: max-content;
   background-color: #fff;
@@ -174,6 +191,9 @@ export const BookBox = styled.div`
   .thumbnail {
     width: 150px;
     display: flex;
+    overflow: hidden;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     img {
       width: 100%;
     }
