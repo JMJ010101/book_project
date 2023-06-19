@@ -211,6 +211,7 @@ export const BookBox = styled.div`
   margin: 15px 18px 15px 0;
   opacity: ${(props) => (props.clickSetting ? 0.5 : 1)};
   position: relative;
+  cursor: pointer;
   .thumbnail {
     width: 152px;
     display: flex;

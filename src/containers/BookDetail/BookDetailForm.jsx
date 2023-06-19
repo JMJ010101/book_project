@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BookBox,
   BookContainer,
   Books,
   Info,
+  InfoBox,
   Inner,
   Intro,
   Introduction,
@@ -16,13 +17,15 @@ import {
   SameAuthor,
   Text,
 } from "./BookDetailSty";
-import { BookItem, OptionItem } from "./BookList";
+import { BookItem } from "./BookList";
 import MyshelfIcon from "../../images/icon_myshelf.png";
 import DownloadIcon from "../../images/icon_download.png";
 import StarIcon from "../../images/icon_star.png";
 import FullStarIcon from "../../images/icon_full_star.png";
 import ShareIcon from "../../images/icon_share.png";
 import PostIcon from "../../images/icon_post.png";
+import axios from "axios";
+import apiServer from "../../api/api";
 
 const BookDetailForm = () => {
   const [clickMore, setClickMore] = useState(false);
@@ -34,6 +37,17 @@ const BookDetailForm = () => {
   const handleFavorite = () => {
     setFavorite(!favorite);
   };
+
+  // 책정보 가져오기
+  // useEffect(() => {
+  //   try {
+  //     axios.get(`${apiServer}/bookinfo/books`).then((response) => {
+  //       console.log(response.data);
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -47,7 +61,20 @@ const BookDetailForm = () => {
                   <p className="title">{item.title}</p>
                   <p className="author">{item.author}</p>
                 </div>
-                <MoreInfo></MoreInfo>
+                <MoreInfo>
+                  <InfoBox className="lala">
+                    <div className="gray">출판사</div>
+                    <div className="black">열린책들</div>
+                  </InfoBox>
+                  <InfoBox>
+                    <div className="gray">출간일</div>
+                    <div className="black">2018.05.30</div>
+                  </InfoBox>
+                  <InfoBox>
+                    <div className="gray">ISBN</div>
+                    <div className="black">9788932965871</div>
+                  </InfoBox>
+                </MoreInfo>
               </Info>
             </BookContainer>
             <Introduction>

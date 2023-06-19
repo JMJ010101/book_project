@@ -6,6 +6,7 @@ export const BookSection = styled.section`
   width: 150px;
   margin: center;
   display: flex;
+  cursor: pointer;
   flex-direction: column; /* 추가 */
 `;
 

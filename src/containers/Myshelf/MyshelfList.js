@@ -12,10 +12,7 @@ export const FilterItem = [
     name: "서재에 담은 순",
   },
   {
-    name: "내림차순",
-  },
-  {
-    name: "오름차순",
+    name: "가나다 순",
   },
 ];
 

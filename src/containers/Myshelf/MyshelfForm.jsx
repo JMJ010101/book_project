@@ -54,8 +54,22 @@ const MyshelfForm = () => {
   };
 
   const selectFilter = (selectedFilter) => {
-    setFilter(selectedFilter);
+    if (selectedFilter === "가나다 순") {
+      setFilter("가나다 순");
+    } else {
+      setFilter(selectedFilter);
+    }
   };
+
+  const filteredBooks =
+    selectCategory === "즐겨찾기"
+      ? ShelfItem.find((item) => item.name === "즐겨찾기").books
+      : ShelfItem.find((item) => item.name === "내 서재").books;
+
+  // Sort the filteredBooks array if the selected filter is "가나다 순"
+  if (filter === "가나다 순") {
+    filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+  }
 
   const GoProduct = () => {
     navigate("/product");
@@ -92,7 +106,7 @@ const MyshelfForm = () => {
                 <img src={StarIcon} alt="별" />
                 <p>나의 인생책</p>
               </div>
-              <div className="title">{randomBook.title}</div>
+              <div className="title">"{randomBook.title}"</div>
             </TextBox>
             <ImageBox>
               <img src={randomBook.src} alt={randomBook.title} />
@@ -120,7 +134,7 @@ const MyshelfForm = () => {
             {selectCategory === i.name && (
               <BookContainer>
                 <Options>
-                  <Total>총 ??권</Total>
+                  <Total>{i.books.length}권</Total>
                   <Sort>
                     <SortBox
                       expanded={expanded}
