@@ -121,18 +121,30 @@ export const Info = styled.div`
 
 export const MoreInfo = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .title {
-    color: #242424;
-    font-size: 20px;
-    font-weight: 800;
-    margin: 10px 0 12px;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 20px 0;
+  width: 610px;
+`;
+
+export const InfoBox = styled.span`
+  text-align: center;
+  width: 33%;
+  &:not(:last-child) {
+    border-right: 1px solid #ddd;
   }
-  .author {
+  .black {
+    color: #242424;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .gray {
     color: #8b8b8b;
     font-size: 12px;
     font-weight: 700;
+    margin: 12px 0 15px;
   }
 `;
 
@@ -188,6 +200,7 @@ export const Books = styled.div`
 export const BookBox = styled.div`
   height: max-content;
   margin: 15px 17px 15px 0;
+  cursor: pointer;
   .thumbnail {
     width: 150px;
     display: flex;

@@ -1,11 +1,16 @@
 import * as S from "./BookSty";
+import NoImage from "../../images/이미지준비중.jpg";
 
 const Book = ({ bookData: book }) => {
   const author = book.authors[0]; // 첫 번째 저자만 선택
   return (
     <div style={{ padding: "10px" }}>
       <S.BookSection>
-        <S.BookImage src={book.thumbnail} alt="도서 미리보기" />
+        {book.thumbnail === "" ? (
+          <S.BookImage src={NoImage} alt="이미지 준비중" />
+        ) : (
+          <S.BookImage src={book.thumbnail} alt="도서 미리보기" />
+        )}
         <S.RightSection>
           <section>
             <S.BookInfoText>{book.title}</S.BookInfoText>

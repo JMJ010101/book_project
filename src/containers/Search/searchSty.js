@@ -122,10 +122,18 @@ export const ModalContent = styled.div`
   }
 `;
 
+export const BtnContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: -80px 0 20px;
+`;
+
 export const ShowMoreButton = styled.button`
-  background-color: #f1f1f1;
+  background-color: #dfdfdf;
   color: #333;
   font-size: 16px;
+  font-weight: 700;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;

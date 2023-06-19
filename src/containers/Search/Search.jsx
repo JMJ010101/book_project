@@ -106,7 +106,9 @@ const Search = () => {
         })}
       </S.BookGrid>
       {data.length > visibleBooks && (
-        <S.ShowMoreButton onClick={showMore}>더 보기</S.ShowMoreButton>
+        <S.BtnContainer>
+          <S.ShowMoreButton onClick={showMore}>더 보기</S.ShowMoreButton>
+        </S.BtnContainer>
       )}
       {isModalOpen && ( // 모달 컴포넌트
         <S.ModalWrapper>

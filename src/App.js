@@ -32,7 +32,7 @@ function App() {
         <Route path="/myshelf" element={<Myshelf />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/feed" element={<Feed />} />
-        <Route path="/bookDetail" element={<BookDetail />} />
+        <Route path="/bookDetail/:idx" element={<BookDetail />} />
       </Routes>
     </Router>
   );
