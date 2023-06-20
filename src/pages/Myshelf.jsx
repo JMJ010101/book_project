@@ -1,12 +1,12 @@
 import React from "react";
 import MyshelfForm from "../containers/Myshelf/MyshelfForm";
-import NavbarForm2 from "../components/Header/NavbarForm2";
+import NavbarForm from "../components/Header/NavbarForm";
 import ChatbotIcon from "../components/ChatbotIcon/ChatbotIcon";
 
 const Myshelf = () => {
   return (
     <>
-      <NavbarForm2 />
+      <NavbarForm />
       <MyshelfForm />
       <ChatbotIcon />
     </>

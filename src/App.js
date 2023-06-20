@@ -14,6 +14,8 @@ import Myshelf from "./pages/Myshelf";
 import Payment from "./pages/Payment";
 import Feed from "./pages/Feed";
 import BookDetail from "./pages/BookDetail";
+import MyInfo from "./pages/MyInfo";
+import LeaveUser from "./pages/LeaveUser";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/bookDetail/:idx" element={<BookDetail />} />
+        <Route path="/myinfo" element={<MyInfo />} />
+        <Route path="/leave-user" element={<LeaveUser />} />
       </Routes>
     </Router>
   );

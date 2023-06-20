@@ -64,7 +64,7 @@ export const NoImage = styled.div`
   width: 88%;
   .tag {
     height: 20px;
-    margin: 20px 0 5px;
+    margin: 30px 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,25 +84,6 @@ export const NoImage = styled.div`
     font-size: 13px;
     color: #555555;
     margin-bottom: 10px;
-  }
-`;
-
-export const FollowBtn = styled.button`
-  display: flex;
-  height: 25px;
-  border: 1px solid #242424;
-  border-radius: 15px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  .material-symbols-outlined {
-    color: #242424;
-    font-size: 18px;
-  }
-  p {
-    font-size: 13px;
-    color: #242424;
-    letter-spacing: -1.5px;
   }
 `;
 

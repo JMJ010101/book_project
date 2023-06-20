@@ -1,12 +1,12 @@
 import React from "react";
 import FeedForm from "./../containers/Feed/FeedForm";
-import NavbarForm2 from "../components/Header/NavbarForm2";
+import NavbarForm from "../components/Header/NavbarForm";
 import ChatbotIcon from "../components/ChatbotIcon/ChatbotIcon";
 
 const Feed = () => {
   return (
     <>
-      <NavbarForm2 />
+      <NavbarForm />
       <FeedForm />
       <ChatbotIcon />
     </>

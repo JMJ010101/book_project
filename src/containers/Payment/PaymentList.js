@@ -7,10 +7,19 @@ import PaycoGray from "../../images/payment/payment_payco_gray.png";
 import CardColor from "../../images/payment/payment_card_color.png";
 import CardGray from "../../images/payment/payment_card_gray.png";
 
+const today = new Date();
+let time = {
+  year: today.getFullYear(), //현재 년도
+  month: today.getMonth() + 1, // 현재 월
+  date: today.getDate(), // 현제 날짜
+};
+const dateNow = `${time.year}.${time.month}.${time.date}`;
+const dateNext = `${time.year}.${time.month + 1}.${time.date}`;
+
 export const InfoItem = [
   { left: "구독 상품", right: "전자책 연 정기구독" },
-  { left: "구독 기간", right: "2023.06.12 ~ 2023.07.12" },
-  { left: "다음 결제일", right: "2023.07.12" },
+  { left: "구독 기간", right: `${dateNow} ~ ${dateNext}` },
+  { left: "다음 결제일", right: dateNext },
 ];
 
 export const PriceItem = [

@@ -1,31 +1,23 @@
 import React, { useState } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
 import {
   Inner,
-  Inner2,
   LeftBox,
   Links,
   MainMenu,
-  NavbarBox,
+  NavbarBox2,
   NavbarContainer,
-  NavbarContainer2,
-  SubMenu,
 } from "./NavbarSty";
 import Logo from "../../images/MainLogo.png";
 import { MainItems } from "./Navbar";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const NavbarForm = () => {
+const NavbarForm2 = () => {
   const [selectMenu, setSelectMenu] = useState("");
-  const [selectSub, setSelectSub] = useState(1);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleMenuClick = (menu) => {
     setSelectMenu(menu);
-  };
-
-  const handleSubClick = (sub) => {
-    setSelectSub(sub);
   };
 
   const handleLogout = () => {
@@ -45,7 +37,7 @@ const NavbarForm = () => {
   }, [location.pathname]);
 
   return (
-    <NavbarBox>
+    <NavbarBox2>
       <NavbarContainer>
         <Inner>
           <LeftBox>
@@ -53,8 +45,9 @@ const NavbarForm = () => {
               <img src={Logo} alt="Logo" />
             </Link>
             {MainItems.map((item) => (
-              <Links to={item.to} key={item.title}>
+              <Links to={item.to}>
                 <MainMenu
+                  key={item.title}
                   onClick={() => handleMenuClick(item.title)}
                   selected={selectMenu === item.title}
                 >
@@ -66,27 +59,8 @@ const NavbarForm = () => {
           <button onClick={handleLogout}>로그아웃</button>
         </Inner>
       </NavbarContainer>
-      <NavbarContainer2>
-        <Inner>
-          <Inner2>
-            {MainItems.map((item) =>
-              selectMenu === item.title
-                ? item.subitems.map((i) => (
-                    <SubMenu
-                      key={i.idx}
-                      onClick={() => handleSubClick(i.idx)}
-                      selected={selectSub === i.idx}
-                    >
-                      {i.name}
-                    </SubMenu>
-                  ))
-                : null
-            )}
-          </Inner2>
-        </Inner>
-      </NavbarContainer2>
-    </NavbarBox>
+    </NavbarBox2>
   );
 };
 
-export default NavbarForm;
+export default NavbarForm2;
