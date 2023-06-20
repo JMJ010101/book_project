@@ -14,6 +14,7 @@ import axios from "axios";
 const ChatbotIcon = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [chatData, setChatData] = useState("");
+  const [chatHistory, setChatHistory] = useState([]);
 
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -29,7 +30,6 @@ const ChatbotIcon = () => {
 
   const ChatbotData = async () => {
     console.log(chatData);
-
     try {
       const response = await axios.get("http://192.168.0.157:8000/chatbot", {
         params: {
@@ -40,9 +40,26 @@ const ChatbotIcon = () => {
       if (response.data.intent === "검색") {
         console.log(response.data.search_results);
       }
+      // Add the input and chatbot response to the chat history
+      const chatbotResponse = [
+        { type: "chatbot", message: response.data.answer },
+      ];
+      if (response.data.search_results) {
+        chatbotResponse.push({
+          type: "chatbot",
+          message: response.data.search_results,
+        });
+      }
+      setChatHistory([
+        ...chatHistory,
+        { type: "user", message: chatData },
+        ...chatbotResponse,
+      ]);
     } catch (error) {
       console.log(`Error: ${error}`);
     }
+    // Clear the input field
+    setChatData("");
   };
 
   return (
@@ -71,26 +88,16 @@ const ChatbotIcon = () => {
               </span>
             </Header>
             <ChatBox className="chatbox">
-              <div className="speech-bubble">안녕 뭐 물어봐도 돼?</div>
-              <div className="speech-bubble">
-                안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕
-                뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?
-              </div>
-              <div className="chatbot-bubble">웅 물어봐</div>
-              <div className="speech-bubble">
-                안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕
-                뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?
-              </div>
-              <div className="chatbot-bubble">웅 물어봐</div>
-              <div className="speech-bubble">
-                안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕
-                뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?
-              </div>
-              <div className="chatbot-bubble">웅 물어봐</div>
-              <div className="speech-bubble">
-                안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕
-                뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?안녕 뭐 물어봐도 돼?
-              </div>
+              {chatHistory.map((chat, index) => (
+                <div
+                  className={
+                    chat.type === "user" ? "speech-bubble" : "chatbot-bubble"
+                  }
+                  key={index}
+                >
+                  {chat.message}
+                </div>
+              ))}
             </ChatBox>
             <InputBox>
               <input

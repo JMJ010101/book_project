@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 export const SlideContainer = styled.div`
   width: 100%;
   height: 280px;
-  margin-top: 106px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -11,7 +10,7 @@ export const SlideContainer = styled.div`
 export const SlideContainer2 = styled.div`
   width: 100%;
   height: 280px;
-  margin-top: 106px;
+  margin-top: 65px;
   position: absolute;
   top: 35px;
   overflow: hidden;

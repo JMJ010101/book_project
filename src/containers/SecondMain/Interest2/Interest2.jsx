@@ -3,7 +3,6 @@ import {
   CateButton,
   Click,
   Follow,
-  FollowBtn,
   Image,
   Inner,
   NoImage,
@@ -15,14 +14,9 @@ import { InterestItems } from "./InterestList";
 
 const Interest2 = () => {
   const [selectedCategory, setSelectedCategory] = useState("#집밥");
-  const [following, setFollowing] = useState(false);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-  };
-
-  const handleFollowing = () => {
-    setFollowing(!following);
   };
 
   return (
@@ -65,15 +59,6 @@ const Interest2 = () => {
                         </span>
                       </div>
                       <div className="text">{i.text}</div>
-                      <FollowBtn
-                        style={{ opacity: !following ? 1 : 0.3 }}
-                        onClick={handleFollowing}
-                      >
-                        <span class="material-symbols-outlined">
-                          {!following ? "add" : "done"}
-                        </span>
-                        <p>팔로우</p>
-                      </FollowBtn>
                     </NoImage>
                   </>
                 ))}
