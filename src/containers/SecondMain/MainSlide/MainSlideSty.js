@@ -8,11 +8,13 @@ export const SlideContainer = styled.div`
   cursor: pointer;
 `;
 export const SlideContainer2 = styled.div`
-  width: 100%;
-  height: 280px;
-  margin-top: 65px;
+  width: max-content;
+  height: max-content;
+  margin: 65px auto 0;
   position: absolute;
   top: 35px;
+  left: 0;
+  right: 0;
   overflow: hidden;
   cursor: pointer;
   z-index: 8;
@@ -21,7 +23,6 @@ export const SlideContainer2 = styled.div`
 export const ContainerBlur = styled.div`
   width: 100%;
   height: 280px;
-  background-image: url("https://d2j6uvfek9vas1.cloudfront.net/hero_banner/6476aeb1dec44.jpg");
   background-position: 50%;
   background-size: cover;
   transform: scale(1.08);

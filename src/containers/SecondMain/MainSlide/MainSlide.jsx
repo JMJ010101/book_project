@@ -14,12 +14,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./swiper-bundle.css";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
+import { slideComment, slideImages } from "./MainSlideList";
 
 SwiperCore.use([Navigation, Autoplay]);
 
 const MainSlide = () => {
   const [moveBar1Width, setMoveBar1Width] = useState("1px");
   const [changePlay, setChangePlay] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,48 +33,50 @@ const MainSlide = () => {
     setChangePlay(!changePlay);
   };
 
+  const handleSlideChange = (swiper) => {
+    setActiveSlideIndex(swiper.activeIndex);
+  };
+
   return (
     <>
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
         navigation={true}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 6000 }}
         modules={[Navigation, Autoplay]}
-        // style={{ overflow: "visible" }}
+        onSlideChange={handleSlideChange}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <SlideContainer>
-            <ContainerBlur></ContainerBlur>
-            <SlideImg></SlideImg>
-          </SlideContainer>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SlideContainer>
-            <ContainerBlur></ContainerBlur>
-            <SlideImg></SlideImg>
-          </SlideContainer>
-        </SwiperSlide>
+        {slideImages.map((img, index) => (
+          <SwiperSlide>
+            <SlideContainer>
+              <ContainerBlur
+                style={{
+                  backgroundImage: `url('${img}')`,
+                }}
+              ></ContainerBlur>
+              <SlideImg></SlideImg>
+            </SlideContainer>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <SlideContainer2>
         <Boxes>
           <ImgBox>
-            <img
-              src="https://d2j6uvfek9vas1.cloudfront.net/hero_banner/6476aeb1dec44.jpg"
-              alt="서울국제도서전"
-            />
+            <img src={slideImages[activeSlideIndex]} alt="슬라이드 이미지" />
           </ImgBox>
           <TextBox>
             <div className="badge">
               <span>EVENT</span>
             </div>
             <div className="text">
-              <p>
-                2023 서울국제도서전
-                <br /> 회원 여러분을 초대합니다
-              </p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: slideComment[activeSlideIndex],
+                }}
+              />
             </div>
             <MoveDiv>
               <div className="moveBar">
@@ -85,9 +89,11 @@ const MainSlide = () => {
                 />
                 <div className="moveBar2" />
               </div>
-              <div className="number">1/4</div>
+              <div className="number">
+                {activeSlideIndex + 1}/{slideImages.length}
+              </div>
               <div className="icon" onClick={ClickIcon} />
-              <span class="material-icons" onClick={ClickIcon}>
+              <span className="material-icons" onClick={ClickIcon}>
                 {changePlay ? "play_arrow" : "pause"}
               </span>
             </MoveDiv>

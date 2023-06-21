@@ -54,7 +54,7 @@ export const Follow = styled.div`
   display: flex;
 `;
 export const Image = styled.div`
-  width: 10%;
+  width: 115px;
   img {
     margin: 16px 15px;
     width: 78px;
