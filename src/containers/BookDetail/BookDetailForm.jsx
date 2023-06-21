@@ -30,6 +30,7 @@ import apiServer from "../../api/api";
 const BookDetailForm = () => {
   const [clickMore, setClickMore] = useState(false);
   const [favorite, setFavorite] = useState(false);
+  const [bookItems, setBookItems] = useState([]);
 
   const handleMore = () => {
     setClickMore(!clickMore);
@@ -38,16 +39,17 @@ const BookDetailForm = () => {
     setFavorite(!favorite);
   };
 
-  // 책정보 가져오기
-  // useEffect(() => {
-  //   try {
-  //     axios.get(`${apiServer}/bookinfo/books`).then((response) => {
-  //       console.log(response.data);
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+  //책정보 가져오기
+  useEffect(() => {
+    try {
+      axios.get(`${apiServer}/bookinfo/books`).then((response) => {
+        setBookItems(response.data);
+        console.log("책:", bookItems);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   return (
     <>
