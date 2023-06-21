@@ -52,6 +52,9 @@ export const Inner = styled.div`
 
 export const LeftBox = styled.div`
   display: flex;
+  img {
+    width: 90px;
+  }
 `;
 
 export const MainMenu = styled.div`

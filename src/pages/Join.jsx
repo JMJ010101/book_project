@@ -63,8 +63,10 @@ const JoinForm = () => {
       <ImageDiv></ImageDiv>
       <LoginDiv>
         <TextBox>
-          <div className="text1">휴대폰 가입</div>
-          <div className="text2">휴대폰 번호는 아이디로 사용됩니다</div>
+          <div className="text1">회원가입</div>
+          <div className="text2">
+            회원가입하고 한달 무료로 밀리를 체험해보세요!
+          </div>
         </TextBox>
         <LoginInput onSubmit={handleSubmit}>
           <InputDiv>

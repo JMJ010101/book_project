@@ -45,7 +45,7 @@ export const Box = styled.div`
 `;
 
 export const Book = styled.div`
-  width: max-content;
+  width: 365px;
   display: flex;
   flex-direction: column;
   .title {
@@ -53,6 +53,9 @@ export const Book = styled.div`
     font-size: 16px;
     font-weight: 800;
     margin-top: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   .writer {
     color: #6f6f6f;

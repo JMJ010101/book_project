@@ -14,6 +14,7 @@ import { LeaveNoticeItem } from "./LeaveUserList";
 import { useNavigate } from "react-router-dom";
 import { ShelfItem } from "./../Myshelf/MyshelfList";
 import axios from "axios";
+import apiServer from "./../../api/api";
 
 const LeaveUserForm = () => {
   const [agree, setAgree] = useState(false);
@@ -35,14 +36,11 @@ const LeaveUserForm = () => {
       if (window.confirm("정말 탈퇴하시겠습니까?") === true) {
         // try {
         //   const token = sessionStorage.getItem("token");
-        //   const response = await axios.delete(
-        //     "http://localhost:8091/api/delete",
-        //     {
-        //       headers: {
-        //         Authorization: token,
-        //       },
-        //     }
-        //   );
+        //   const response = await axios.delete(`${apiServer}/api/delete"`, {
+        //     headers: {
+        //       Authorization: token,
+        //     },
+        //   });
         //   // 데이터를 받아와 처리
         //   console.log(response.data);
         // } catch (error) {

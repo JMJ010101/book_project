@@ -6,6 +6,8 @@ import random1 from "../../images/random/KakaoTalk_20230614_154927238.jpg";
 import random2 from "../../images/random/KakaoTalk_20230614_154927238_01.jpg";
 import random3 from "../../images/random/KakaoTalk_20230614_154927238_02.jpg";
 import random4 from "../../images/random/KakaoTalk_20230614_154927238_03.jpg";
+import axios from "axios";
+import apiServer from "../../api/api";
 
 const FeedForm = () => {
   const [currentImages, setCurrentImages] = useState("");
@@ -30,6 +32,21 @@ const FeedForm = () => {
     });
     setCurrentImages(images);
   };
+
+  // // 책 정보 가져오기
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get(`${apiServer}/bookinfo/books`);
+  //     const data = response.data;
+  //     // 데이터 처리 로직 작성
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  // // fetchData 함수 호출
+  // fetchData();
 
   return (
     <>
