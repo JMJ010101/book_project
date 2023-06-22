@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const FreeSub = styled.div`
@@ -125,7 +126,7 @@ export const MoreInfo = styled.div`
   border-radius: 10px;
   background-color: #f7f7f7;
   padding: 20px 0;
-  width: 610px;
+  width: 860px;
 `;
 
 export const InfoBox = styled.span`
@@ -165,13 +166,14 @@ export const Intro = styled.div`
 export const Text = styled.p`
   height: max-content;
   color: #555555;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 22px;
+  word-spacing: 2px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: ${(props) => (props.selected ? "" : "-webkit-box")};
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
 export const More = styled.div`
@@ -230,5 +232,76 @@ export const BookBox = styled.div`
     font-weight: 700;
     color: #6f6f6f;
     margin-bottom: 7px;
+  }
+`;
+
+export const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+`;
+
+export const ModalContent = styled.div`
+  background-color: white;
+  border-radius: 7px;
+  width: 350px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #242424;
+    margin: 30px 0 30px;
+    letter-spacing: -1px;
+  }
+  p {
+    font-size: 15px;
+    font-weight: 700;
+    color: #6f6f6f;
+    margin-bottom: 22px;
+    letter-spacing: -1px;
+    line-height: 22px;
+    text-align: center;
+  }
+  img {
+    margin-bottom: 30px;
+  }
+`;
+export const ButtonBox = styled.div`
+  display: flex;
+  width: 100%;
+  .close {
+    background-color: #c1c1c1;
+    width: 50%;
+    color: #242424;
+    border: none;
+    width: 100%;
+    height: 58px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .subscribe {
+    background-color: #ffeb60;
+    width: 50%;
+    color: #242424;
+    border: none;
+    width: 100%;
+    height: 58px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -1px;
   }
 `;
