@@ -49,7 +49,7 @@ export const MainRoad = styled.div`
   border-radius: 10px;
   position: relative;
   cursor: pointer;
-  .girl {
+  .image {
     width: 100%;
   }
   .title {
@@ -61,11 +61,13 @@ export const MainRoad = styled.div`
   .text {
     position: absolute;
     left: 25px;
-    top: 270px;
+    top: 265px;
     width: 200px;
     color: white;
     font-size: 16px;
     font-weight: 800;
+    line-height: 22px;
+    letter-spacing: -0.5px;
   }
   .small {
     position: absolute;

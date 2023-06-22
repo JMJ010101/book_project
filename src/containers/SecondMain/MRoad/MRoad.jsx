@@ -35,8 +35,8 @@ const MRoad = () => {
             <Roads>
               <MainRoad>
                 <img
-                  className="girl"
-                  src="https://d2j6uvfek9vas1.cloudfront.net/common_banner/645a2076c1d01.jpg"
+                  className="image"
+                  src="https://d2j6uvfek9vas1.cloudfront.net/common_banner/648af8004aee9.jpg"
                   alt="밀리로드"
                 />
                 <img

@@ -26,7 +26,7 @@ const MainSlide = () => {
   useEffect(() => {
     setTimeout(() => {
       setMoveBar1Width("100%");
-    });
+    }, 500);
   }, []);
 
   const ClickIcon = () => {
@@ -37,11 +37,20 @@ const MainSlide = () => {
     setActiveSlideIndex(swiper.activeIndex);
   };
 
+  useEffect(() => {
+    setMoveBar1Width("1px");
+    setTimeout(() => {
+      setMoveBar1Width("100%");
+    }, 500);
+  }, [activeSlideIndex]);
+
   return (
     <>
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
+        // loop= {true}
+        // loopAdditionalSlides= {1}
         navigation={true}
         autoplay={{ delay: 6000 }}
         modules={[Navigation, Autoplay]}
@@ -84,7 +93,10 @@ const MainSlide = () => {
                   className="moveBar1"
                   style={{
                     width: moveBar1Width,
-                    transition: "width 5s linear",
+                    transition:
+                      moveBar1Width === "100%"
+                        ? "width 5s linear"
+                        : "width 0s linear",
                   }}
                 />
                 <div className="moveBar2" />

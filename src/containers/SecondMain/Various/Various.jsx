@@ -52,8 +52,7 @@ const Various = () => {
   };
 
   const handleRefresh = () => {
-    const newRandomItems = getRandomItems(bookItems, 3);
-    setBookItems(newRandomItems);
+    fetchData();
   };
 
   return (
@@ -83,10 +82,8 @@ const Various = () => {
             </BoxContainer>
           ))}
         </Boxes>
-        <MoreBtn>
-          <span class="material-symbols-outlined" onClick={handleRefresh}>
-            refresh
-          </span>
+        <MoreBtn onClick={handleRefresh}>
+          <span class="material-symbols-outlined">refresh</span>
           <p>더 많이 발견하기</p>
         </MoreBtn>
       </Inner>

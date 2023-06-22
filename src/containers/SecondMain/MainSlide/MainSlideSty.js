@@ -75,17 +75,6 @@ export const TextBox = styled.div`
     color: white;
     line-height: 27px;
   }
-  .moveBar {
-    width: 220px;
-    .moveBar1 {
-      border-top: 1px solid white;
-    }
-    .moveBar2 {
-      border-top: 1px solid white;
-      opacity: 0.3;
-      width: 220px;
-    }
-  }
   .number {
     font-weight: 800;
     font-size: 13px;
@@ -113,4 +102,25 @@ export const MoveDiv = styled.div`
   align-items: center;
   margin-top: 100px;
   justify-content: space-between;
+  .moveBar {
+    position: relative;
+    width: 220px;
+    height: 1px;
+    .moveBar1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-top: 1px solid white;
+    }
+    .moveBar2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-top: 1px solid white;
+      opacity: 0.3;
+    }
+  }
 `;

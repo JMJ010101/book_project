@@ -62,6 +62,14 @@ const ChatbotIcon = () => {
     setChatData("");
   };
 
+  const onKeyUp = (event) => {
+    // 'enter'키의 keycode는 13
+    if (event.keyCode === 13) {
+      console.log("enter");
+      //input값 가져와서 ChatbotData호출
+    }
+  };
+
   return (
     <>
       <IconDiv
@@ -106,6 +114,7 @@ const ChatbotIcon = () => {
                 value={chatData}
                 onChange={(e) => setChatData(e.target.value)}
                 required
+                onKeyUp={onKeyUp}
               />
               <button onClick={ChatbotData}>전송</button>
             </InputBox>

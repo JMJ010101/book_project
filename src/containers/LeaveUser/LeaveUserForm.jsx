@@ -34,18 +34,19 @@ const LeaveUserForm = () => {
       return;
     } else {
       if (window.confirm("정말 탈퇴하시겠습니까?") === true) {
-        // try {
-        //   const token = sessionStorage.getItem("token");
-        //   const response = await axios.delete(`${apiServer}/api/delete"`, {
-        //     headers: {
-        //       Authorization: token,
-        //     },
-        //   });
-        //   // 데이터를 받아와 처리
-        //   console.log(response.data);
-        // } catch (error) {
-        //   console.log(`Error: ${error}`);
-        // }
+        try {
+          const token = localStorage.getItem("accessToken");
+          const response = await axios.delete(`${apiServer}/api/delete`, {
+            headers: {
+              Authorization: token,
+            },
+          });
+          // 데이터를 받아와 처리
+          console.log(response.data);
+        } catch (error) {
+          console.log(`Error: ${error}`);
+        }
+
         alert("회원 탈퇴 되었습니다.");
         navigate("/");
       } else {
