@@ -34,7 +34,7 @@ function App() {
         <Route path="/myshelf" element={<Myshelf />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/feed" element={<Feed />} />
-        <Route path="/bookDetail/:idx" element={<BookDetail />} />
+        <Route path="/bookDetail/:id" element={<BookDetail />} />
         <Route path="/myinfo" element={<MyInfo />} />
         <Route path="/leave-user" element={<LeaveUser />} />
       </Routes>

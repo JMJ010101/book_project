@@ -31,19 +31,13 @@ import apiServer from "../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 const BookDetailForm = () => {
-  let { params } = useParams();
-  console.log("param", params);
+  let { id } = useParams();
+  console.log(Number(id));
   const [clickMore, setClickMore] = useState(false);
   const [favorite, setFavorite] = useState(false);
   const [bookItems, setBookItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const [currentLastUrl, setCurrentLastUrl] = useState(null);
-  const location = document.location.href.split("/").pop();
-  useEffect(() => {
-    setCurrentLastUrl(location);
-    console.log(location);
-  }, []);
 
   const handleMore = () => {
     setClickMore(!clickMore);
@@ -61,11 +55,14 @@ const BookDetailForm = () => {
     setIsModalOpen(false);
   };
 
-  const getBook = () => {
+  const getBook = async () => {
     try {
       axios.get(`${apiServer}/bookinfo/books`).then((response) => {
-        setBookItems(response.data);
-        console.log("책:", bookItems);
+        const filteredBook = response.data.filter(
+          (item) => item.idx === Number(id)
+        );
+        console.log("필터", filteredBook);
+        setBookItems(filteredBook);
       });
     } catch (error) {
       console.log(error);
@@ -75,82 +72,77 @@ const BookDetailForm = () => {
   useEffect(() => {
     getBook();
   }, []);
+
   // 현재 선택된 책의 authors 값을 가져옵니다.
   const currentAuthors = bookItems.find(
-    (item) => item.idx === Number(currentLastUrl)
+    (item) => item.idx === Number(id)
   )?.authors;
 
   // authors 값이 동일한 다른 책들을 필터링하여 출력합니다.
   const otherBooks = bookItems.filter(
-    (item) =>
-      item.authors === currentAuthors && item.idx !== Number(currentLastUrl)
+    (item) => item.authors === currentAuthors && item.idx !== Number(id)
   );
 
   return (
     <>
       <Inner>
-        {bookItems.map(
-          (item) =>
-            item.idx === Number(currentLastUrl) && (
-              <LeftBox key={item.idx}>
-                <BookContainer>
-                  <img src={item.thumbnail} alt="책 표지" />
-                  <Info>
-                    <div>
-                      <p className="title">{item.title}</p>
-                      <p className="authors">{item.authors}</p>
+        {bookItems.map((item) => (
+          <LeftBox key={item.idx}>
+            <BookContainer>
+              <img src={item.thumbnail} alt="책 표지" />
+              <Info>
+                <div>
+                  <p className="title">{item.title}</p>
+                  <p className="authors">{item.authors}</p>
+                </div>
+                <MoreInfo>
+                  <InfoBox className="lala">
+                    <div className="gray">출판사</div>
+                    <div className="black">{item.publisher}</div>
+                  </InfoBox>
+                  <InfoBox>
+                    <div className="gray">출간일</div>
+                    <div className="black">
+                      {item.datetime.split(" ").shift()}
                     </div>
-                    <MoreInfo>
-                      <InfoBox className="lala">
-                        <div className="gray">출판사</div>
-                        <div className="black">{item.publisher}</div>
-                      </InfoBox>
-                      <InfoBox>
-                        <div className="gray">출간일</div>
-                        <div className="black">
-                          {item.datetime.split(" ").shift()}
-                        </div>
-                      </InfoBox>
-                      <InfoBox>
-                        <div className="gray">ISBN</div>
-                        <div className="black">{item.isbn}</div>
-                      </InfoBox>
-                    </MoreInfo>
-                  </Info>
-                </BookContainer>
-                <Introduction>
-                  <Intro>책 소개</Intro>
-                  <Text selected={clickMore}>{item.contents}</Text>
-                  <More>
-                    <p onClick={handleMore}>
-                      {!clickMore ? "더보기" : "접어보기"}
-                    </p>
-                  </More>
-                </Introduction>
-                <SameAuthor>
-                  <Intro>이 저자 역자의 다른 책</Intro>
-                  <Books>
-                    {otherBooks.map((i) => (
-                      <BookBox
-                        key={i.idx}
-                        onClick={() => {
-                          console.log(i.idx);
-                          navigate(`/bookDetail/${i.idx}`);
-                          // window.location.replace(`/bookDetail/${i.idx}`);
-                        }}
-                      >
-                        <div className="thumbnail">
-                          <img src={i.thumbnail} alt="책 표지" />
-                        </div>
-                        <div className="title">{i.title}</div>
-                        <div className="author">{i.authors}</div>
-                      </BookBox>
-                    ))}
-                  </Books>
-                </SameAuthor>
-              </LeftBox>
-            )
-        )}
+                  </InfoBox>
+                  <InfoBox>
+                    <div className="gray">ISBN</div>
+                    <div className="black">{item.isbn}</div>
+                  </InfoBox>
+                </MoreInfo>
+              </Info>
+            </BookContainer>
+            <Introduction>
+              <Intro>책 소개</Intro>
+              <Text selected={clickMore}>{item.contents}</Text>
+              <More>
+                <p onClick={handleMore}>{!clickMore ? "더보기" : "접어보기"}</p>
+              </More>
+            </Introduction>
+            <SameAuthor>
+              <Intro>이 저자 역자의 다른 책</Intro>
+              <Books>
+                {otherBooks.map((i) => (
+                  <BookBox
+                    key={i.idx}
+                    onClick={() => {
+                      console.log(i.idx);
+                      navigate(`/bookDetail/${i.idx}`);
+                      // window.location.replace(`/bookDetail/${i.idx}`);
+                    }}
+                  >
+                    <div className="thumbnail">
+                      <img src={i.thumbnail} alt="책 표지" />
+                    </div>
+                    <div className="title">{i.title}</div>
+                    <div className="author">{i.authors}</div>
+                  </BookBox>
+                ))}
+              </Books>
+            </SameAuthor>
+          </LeftBox>
+        ))}
         <RightBox>
           <Options>
             <div className="option">
