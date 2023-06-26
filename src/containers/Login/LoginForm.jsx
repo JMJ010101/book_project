@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   LoginContainer,
   LoginDiv,
@@ -20,6 +20,7 @@ import apiServer from "../../api/api";
 const LoginForm = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+  const [user, setUser] = useState([]);
   const navigate = useNavigate();
 
   const ToMain = () => {
@@ -33,14 +34,28 @@ const LoginForm = () => {
         id,
         pw,
       });
-      console.log(response.data);
+      console.log("데이터: ", response.data);
       alert("로그인 성공");
-      // localStorage.setItem("id", response.data.id);
       const token = response.data.token;
       localStorage.setItem("accessToken", token);
       navigate("/main");
+
+      const userId = response.data.id;
+      console.log("유저 아이디", userId);
+      getUserData(userId);
     } catch (error) {
       alert("아이디나 비밀번호를 다시 확인해주세요.");
+      console.log(error);
+    }
+  };
+
+  const getUserData = async (userId) => {
+    try {
+      const response = await axios.get(`${apiServer}/api/member/${userId}`);
+      const userData = response.data;
+      setUser(userData);
+      console.log("유저정보:", userData);
+    } catch (error) {
       console.log(error);
     }
   };
@@ -81,7 +96,7 @@ const LoginForm = () => {
             </li>
           ))}
         </Options>
-        <OrDiv>
+        {/* <OrDiv>
           <div className="line"></div>
           <div className="or">또는</div>
           <div className="line"></div>
@@ -107,7 +122,7 @@ const LoginForm = () => {
             src="https://d3udu241ivsax2.cloudfront.net/v3/images/login/google-icon.4f89e46a7f4be2551c6b2ab781be474d.svg"
             alt="Google로 로그인"
           />
-        </Buttons>
+        </Buttons> */}
         {/* <LoginBtn onClick={ToMain}>메인으로</LoginBtn> */}
       </LoginDiv>
     </LoginContainer>

@@ -33,7 +33,6 @@ const NavbarForm2 = () => {
     if (selectedItem) {
       setSelectMenu(selectedItem.title);
     }
-    console.log(selectedItem);
   }, [location.pathname]);
 
   return (
