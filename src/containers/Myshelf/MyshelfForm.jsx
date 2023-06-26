@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import StarIcon from "../../images/icon_full_star.png";
 import {
   BookBox,
   BookContainer,
@@ -23,8 +25,6 @@ import {
   UserContainer,
 } from "./MyshelfSty";
 import { CategoryItem, FilterItem, ShelfItem } from "./MyshelfList";
-import { useNavigate } from "react-router-dom";
-import StarIcon from "../../images/icon_full_star.png";
 
 const MyshelfForm = () => {
   const [selectCategory, setSelectCategory] = useState("즐겨찾기");
@@ -61,16 +61,26 @@ const MyshelfForm = () => {
     }
   };
 
-  const filteredBooks = selectCategory === "즐겨찾기";
+  const getFilteredBooks = () => {
+    if (selectCategory === "즐겨찾기") {
+      return ShelfItem.find((item) => item.name === "즐겨찾기")?.books || [];
+    }
+    return [];
+  };
+
+  let filteredBooks = getFilteredBooks();
 
   // Sort the filteredBooks array if the selected filter is "가나다 순"
   if (filter === "가나다 순") {
-    filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+    filteredBooks = [...filteredBooks].sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
   }
 
   const GoProduct = () => {
     navigate("/product");
   };
+
   return (
     <>
       <Inner>
@@ -86,14 +96,14 @@ const MyshelfForm = () => {
               <div className="name">고양이귀여워</div>
               <div className="subscribe">
                 <p>밀리의 서재 구독하러 가기</p>
-                <span onClick={GoProduct} class="material-symbols-outlined">
+                <span onClick={GoProduct} className="material-symbols-outlined">
                   chevron_right
                 </span>
               </div>
             </User>
           </LeftBox>
           <Menu>
-            <span class="material-symbols-outlined">menu</span>
+            <span className="material-symbols-outlined">menu</span>
           </Menu>
         </UserContainer>
         {randomBook && (
@@ -117,6 +127,7 @@ const MyshelfForm = () => {
             <BtnBox>
               {CategoryItem.map((cate) => (
                 <CategoryBtn
+                  key={cate.name}
                   onClick={() => handleCategory(cate.name)}
                   selected={selectCategory === cate.name}
                 >
@@ -126,10 +137,10 @@ const MyshelfForm = () => {
             </BtnBox>
           </CateInner>
         </CategoryBox>
-        {ShelfItem.map((i) => (
-          <>
-            {selectCategory === i.name && (
-              <BookContainer>
+        {ShelfItem.map(
+          (i) =>
+            selectCategory === i.name && (
+              <BookContainer key={i.name}>
                 <Options>
                   <Total>{i.books.length}권</Total>
                   <Sort>
@@ -140,6 +151,7 @@ const MyshelfForm = () => {
                       {FilterItem.map((item) => (
                         <span
                           className="filter"
+                          key={item.name}
                           onClick={() => selectFilter(item.name)}
                         >
                           {item.name}
@@ -147,17 +159,17 @@ const MyshelfForm = () => {
                       ))}
                       <p>{filter}</p>
                       {!expanded ? (
-                        <span class="material-icons-outlined">
+                        <span className="material-icons-outlined">
                           chevron_left
                         </span>
                       ) : (
-                        <span class="material-icons-outlined">
+                        <span className="material-icons-outlined">
                           chevron_right
                         </span>
                       )}
                     </SortBox>
                     <span
-                      class="material-symbols-outlined"
+                      className="material-symbols-outlined"
                       onClick={() => setClickSetting(!clickSetting)}
                     >
                       settings
@@ -165,14 +177,16 @@ const MyshelfForm = () => {
                   </Sort>
                 </Options>
                 <Books>
-                  {i.books.map((item) => (
-                    <BookBox clickSetting={clickSetting}>
+                  {filteredBooks.map((item) => (
+                    <BookBox key={item.title} clickSetting={clickSetting}>
                       <div className="thumbnail">
                         <img src={item.src} alt="책 표지" />
                         {!clickSetting ? (
                           ""
                         ) : (
-                          <span class="material-symbols-outlined">delete</span>
+                          <span className="material-symbols-outlined">
+                            delete
+                          </span>
                         )}
                       </div>
                       <div className="title">{item.title}</div>
@@ -181,9 +195,8 @@ const MyshelfForm = () => {
                   ))}
                 </Books>
               </BookContainer>
-            )}
-          </>
-        ))}
+            )
+        )}
       </Inner2>
     </>
   );

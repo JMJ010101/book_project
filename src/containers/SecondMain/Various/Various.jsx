@@ -51,7 +51,6 @@ const Various = () => {
         }
       );
       const data = response.data.documents;
-      console.log(data);
       const randomItems = getRandomItems(data, 3);
       setBookItems(randomItems);
     } catch (error) {

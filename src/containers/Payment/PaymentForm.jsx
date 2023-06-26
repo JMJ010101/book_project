@@ -28,6 +28,7 @@ import {
   PriceItem,
 } from "./PaymentList";
 import axios from "axios";
+import apiServer from "./../../api/api";
 
 const PaymentForm = () => {
   const navigate = useNavigate();
@@ -79,25 +80,25 @@ const PaymentForm = () => {
     setIsModalOpen(false);
   };
 
-  // const fetchData = async () => {
-  //   try {
-  //     const token = localStorage.getItem("token");
-  //     const response = await axios.post(
-  //       "http://localhost:8091/api/subscribe",
-  //       {}, // 요청 본문이 필요하지 않은 경우 빈 객체를 전달합니다.
-  //       {
-  //         headers: {
-  //           Authorization: token,
-  //         },
-  //       }
-  //     );
-
-  //     // 데이터를 받아와 처리
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.log(`Error: ${error}`);
-  //   }
-  // };
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      const response = await axios.post(
+        `${apiServer}/api/subscribe`,
+        {}, // 요청 본문이 필요하지 않은 경우 빈 객체를 전달합니다.
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      console.log(response.data);
+      alert("구독 성공");
+      navigate("/main");
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  };
 
   return (
     <>
@@ -235,7 +236,7 @@ const PaymentForm = () => {
             <p>0원 결제하기</p>
           </button>
         ) : (
-          <button className="button2">
+          <button className="button2" onClick={fetchData}>
             <p>0원 결제하기</p>
           </button>
         )}
