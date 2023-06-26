@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const BookSection = styled.section`
@@ -48,4 +49,9 @@ export const BookAuthor = styled.section`
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 15px;
+`;
+
+export const Links = styled(Link)`
+  text-decoration: none;
+  color: #242424;
 `;

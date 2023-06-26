@@ -10,21 +10,47 @@ import {
 } from "./VariousSty";
 import { Title } from "../MRoad/MRoadSty";
 import axios from "axios";
-import apiServer from "../../../api/api";
 import { Link } from "react-router-dom";
+import getApiKey from "../../../api/restApi";
 
 const Various = () => {
   const [bookItems, setBookItems] = useState([]);
+  const restApi = getApiKey();
 
   useEffect(() => {
     fetchData();
   }, []);
 
   // 책 정보 가져오기
+  const keywords = [
+    "1",
+    "셀러",
+    "책",
+    "추천",
+    "판매",
+    "음식",
+    "나",
+    "친구",
+    "바다",
+    "강아지",
+    "고양이",
+    "수달",
+    "이",
+  ];
+
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${apiServer}/bookinfo/books`);
-      const data = response.data;
+      const randomKeyword =
+        keywords[Math.floor(Math.random() * keywords.length)];
+      const response = await axios.get(
+        `https://dapi.kakao.com/v3/search/book?&query=${randomKeyword}`,
+        {
+          headers: {
+            Authorization: `KakaoAK ${restApi}`,
+          },
+        }
+      );
+      const data = response.data.documents;
       console.log(data);
       const randomItems = getRandomItems(data, 3);
       setBookItems(randomItems);
@@ -64,7 +90,11 @@ const Various = () => {
         <Boxes>
           {bookItems.map((item) => (
             <BoxContainer key={item.title}>
-              <Link to={`/bookDetail/${item.idx}`}>
+              <Link
+                to={`/bookDetail/${encodeURIComponent(
+                  item.isbn.split(" ")[0]
+                )}`}
+              >
                 <Box>
                   <div
                     className="blur"
@@ -83,7 +113,7 @@ const Various = () => {
           ))}
         </Boxes>
         <MoreBtn onClick={handleRefresh}>
-          <span class="material-symbols-outlined">refresh</span>
+          <span className="material-symbols-outlined">refresh</span>
           <p>더 많이 발견하기</p>
         </MoreBtn>
       </Inner>

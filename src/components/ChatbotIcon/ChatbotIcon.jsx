@@ -67,6 +67,7 @@ const ChatbotIcon = () => {
     if (event.keyCode === 13) {
       console.log("enter");
       //input값 가져와서 ChatbotData호출
+      ChatbotData();
     }
   };
 

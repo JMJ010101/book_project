@@ -63,6 +63,9 @@ export const Book = styled.div`
     font-weight: 800;
     line-height: 32px;
     margin-bottom: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 `;
 

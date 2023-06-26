@@ -3,7 +3,6 @@ import {
   BookBox,
   BookContainer,
   Books,
-  ButtonBox,
   Info,
   InfoBox,
   Inner,
@@ -27,8 +26,9 @@ import FullStarIcon from "../../images/icon_full_star.png";
 import ShareIcon from "../../images/icon_share.png";
 import PostIcon from "../../images/icon_post.png";
 import axios from "axios";
-import apiServer from "../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
+import getApiKey from "../../api/restApi";
+import NoImage from "../../images/이미지준비중.jpg";
 
 const BookDetailForm = () => {
   let { id } = useParams();
@@ -36,8 +36,10 @@ const BookDetailForm = () => {
   const [clickMore, setClickMore] = useState(false);
   const [favorite, setFavorite] = useState(false);
   const [bookItems, setBookItems] = useState([]);
+  const [otherBooks, setOtherBooks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const restApi = getApiKey();
 
   const handleMore = () => {
     setClickMore(!clickMore);
@@ -51,45 +53,69 @@ const BookDetailForm = () => {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   const getBook = async () => {
     try {
-      axios.get(`${apiServer}/bookinfo/books`).then((response) => {
-        const filteredBook = response.data.filter(
-          (item) => item.idx === Number(id)
-        );
-        console.log("필터", filteredBook);
-        setBookItems(filteredBook);
-      });
+      const response = await axios.get(
+        `https://dapi.kakao.com/v3/search/book?query=${id}`,
+        {
+          headers: {
+            Authorization: `KakaoAK ${restApi}`,
+          },
+        }
+      );
+      const data = response.data.documents;
+      console.log(data);
+      setBookItems(data.slice(0, 1));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getOtherBooks = async () => {
+    const author = bookItems[0]?.authors[0] || "";
+    try {
+      const response = await axios.get(
+        `https://dapi.kakao.com/v3/search/book?query=${author}`,
+        {
+          headers: {
+            Authorization: `KakaoAK ${restApi}`,
+          },
+        }
+      );
+      const data = response.data.documents;
+      console.log(data);
+      setOtherBooks(
+        data.filter((book) => book.isbn.split(" ")[0] !== id).slice(0, 7)
+      ); // 최대 7권만 보여주기
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
+    if (bookItems.length > 0) {
+      getOtherBooks();
+    }
+  }, [bookItems]);
+
+  const handleBookClick = (isbn) => {
+    navigate(`/bookDetail/${isbn}`);
+  };
+  useEffect(() => {
     getBook();
-  }, []);
-
-  // 현재 선택된 책의 authors 값을 가져옵니다.
-  const currentAuthors = bookItems.find(
-    (item) => item.idx === Number(id)
-  )?.authors;
-
-  // authors 값이 동일한 다른 책들을 필터링하여 출력합니다.
-  const otherBooks = bookItems.filter(
-    (item) => item.authors === currentAuthors && item.idx !== Number(id)
-  );
+  }, [id]);
 
   return (
     <>
       <Inner>
         {bookItems.map((item) => (
-          <LeftBox key={item.idx}>
+          <LeftBox key={item.isbn}>
             <BookContainer>
-              <img src={item.thumbnail} alt="책 표지" />
+              {item.thumbnail === "" ? (
+                <img src={NoImage} alt="책 표지" />
+              ) : (
+                <img src={item.thumbnail} alt="책 표지" />
+              )}
               <Info>
                 <div>
                   <p className="title">{item.title}</p>
@@ -103,7 +129,7 @@ const BookDetailForm = () => {
                   <InfoBox>
                     <div className="gray">출간일</div>
                     <div className="black">
-                      {item.datetime.split(" ").shift()}
+                      {item.datetime.split("T").shift()}
                     </div>
                   </InfoBox>
                   <InfoBox>
@@ -125,15 +151,15 @@ const BookDetailForm = () => {
               <Books>
                 {otherBooks.map((i) => (
                   <BookBox
-                    key={i.idx}
-                    onClick={() => {
-                      console.log(i.idx);
-                      navigate(`/bookDetail/${i.idx}`);
-                      // window.location.replace(`/bookDetail/${i.idx}`);
-                    }}
+                    key={i.isbn}
+                    onClick={() => handleBookClick(i.isbn.split(" ")[0])}
                   >
                     <div className="thumbnail">
-                      <img src={i.thumbnail} alt="책 표지" />
+                      {item.thumbnail === "" ? (
+                        <img src={NoImage} alt="책 표지" />
+                      ) : (
+                        <img src={i.thumbnail} alt="책 표지" />
+                      )}
                     </div>
                     <div className="title">{i.title}</div>
                     <div className="author">{i.authors}</div>
@@ -176,7 +202,7 @@ const BookDetailForm = () => {
         </RightBox>
       </Inner>
 
-      {isModalOpen && ( // 모달 컴포넌트
+      {isModalOpen && (
         <ModalWrapper>
           <ModalContent>
             <h2>아직 구독하고 있지 않아요</h2>
@@ -190,17 +216,6 @@ const BookDetailForm = () => {
               src="https://d3udu241ivsax2.cloudfront.net/v3/images/common/subscribe-illust-new.61767b1a5c96c47dcc338bb8f7351b6a.png"
               alt="밀리 이미지"
             />
-            <ButtonBox>
-              <button className="close" onClick={closeModal}>
-                닫기
-              </button>
-              <button
-                className="subscribe"
-                onClick={() => navigate("/product")}
-              >
-                구독 시작하기
-              </button>
-            </ButtonBox>
           </ModalContent>
         </ModalWrapper>
       )}

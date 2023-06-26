@@ -104,10 +104,10 @@ const MainSlide = () => {
               <div className="number">
                 {activeSlideIndex + 1}/{slideImages.length}
               </div>
-              <div className="icon" onClick={ClickIcon} />
+              {/* <div className="icon" onClick={ClickIcon} />
               <span className="material-icons" onClick={ClickIcon}>
                 {changePlay ? "play_arrow" : "pause"}
-              </span>
+              </span> */}
             </MoveDiv>
           </TextBox>
         </Boxes>
