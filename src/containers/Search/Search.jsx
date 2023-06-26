@@ -77,6 +77,13 @@ const Search = () => {
     console.log("요청 URL:", requestUrl);
   };
 
+  const onKeyUp = (event) => {
+    if (event.keyCode === 13) {
+      console.log("enter");
+      searchBook();
+    }
+  };
+
   return (
     <>
       <S.Fixed>
@@ -85,7 +92,11 @@ const Search = () => {
             {filter}
             <span class="material-symbols-outlined">keyboard_arrow_down</span>
           </button>
-          <input onChange={changeInput} placeholder="검색어를 입력하세요" />
+          <input
+            onChange={changeInput}
+            placeholder="검색어를 입력하세요"
+            onKeyUp={onKeyUp}
+          />
           <button onClick={searchBook} onMouseDown={printRequestUrl}>
             {searching ? (
               "검색 중.."

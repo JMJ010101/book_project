@@ -108,7 +108,7 @@ const LoginForm = () => {
             alt="Google로 로그인"
           />
         </Buttons>
-        <LoginBtn onClick={ToMain}>메인으로</LoginBtn>
+        {/* <LoginBtn onClick={ToMain}>메인으로</LoginBtn> */}
       </LoginDiv>
     </LoginContainer>
   );

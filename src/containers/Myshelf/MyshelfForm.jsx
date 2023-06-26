@@ -27,7 +27,7 @@ import { useNavigate } from "react-router-dom";
 import StarIcon from "../../images/icon_full_star.png";
 
 const MyshelfForm = () => {
-  const [selectCategory, setSelectCategory] = useState("내 서재");
+  const [selectCategory, setSelectCategory] = useState("즐겨찾기");
   const [expanded, setExpanded] = useState(false);
   const [filter, setFilter] = useState("서재에 담은 순");
   const [clickSetting, setClickSetting] = useState(false);
@@ -61,10 +61,7 @@ const MyshelfForm = () => {
     }
   };
 
-  const filteredBooks =
-    selectCategory === "즐겨찾기"
-      ? ShelfItem.find((item) => item.name === "즐겨찾기").books
-      : ShelfItem.find((item) => item.name === "내 서재").books;
+  const filteredBooks = selectCategory === "즐겨찾기";
 
   // Sort the filteredBooks array if the selected filter is "가나다 순"
   if (filter === "가나다 순") {

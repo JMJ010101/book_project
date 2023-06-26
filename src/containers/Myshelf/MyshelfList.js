@@ -1,8 +1,5 @@
 export const CategoryItem = [
   {
-    name: "내 서재",
-  },
-  {
     name: "즐겨찾기",
   },
 ];
@@ -17,86 +14,6 @@ export const FilterItem = [
 ];
 
 export const ShelfItem = [
-  {
-    name: "내 서재",
-    books: [
-      {
-        src: "https://cover.millie.co.kr/service/cover/15844047/294233c2723e4900a48b47653ae4bdfc.jpg?w=220&f=webp&q=80",
-        title: "고양이 1",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/1468663/b0616a65b166421b8c1ac706dfe01bc4.jpg?w=145&f=webp&q=80",
-        title: "나무",
-        author: "베르나르 베르베르 지음 / 누구누구 엮음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/179506616/d534496965024d7aaf829f7a3e900378.jpg?w=220&f=webp&q=80",
-        title: "틴틴팅클!",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/15844049/7c58e47c486444838ea6c860d80ea71c.jpg?w=220&f=webp&q=80",
-        title: "고양이2",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/620609/1d5fe868c7f045058b16c66fb70c63b8.jpg?w=220&f=webp&q=80",
-        title: "파피용",
-        author: "베르나르 베르베르 지음, 전미연 옮김",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/15844047/294233c2723e4900a48b47653ae4bdfc.jpg?w=220&f=webp&q=80",
-        title: "고양이 1",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/1468663/b0616a65b166421b8c1ac706dfe01bc4.jpg?w=145&f=webp&q=80",
-        title: "나무",
-        author: "베르나르 베르베르 지음 / 누구누구 엮음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/179506616/d534496965024d7aaf829f7a3e900378.jpg?w=220&f=webp&q=80",
-        title: "틴틴팅클!",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/15844049/7c58e47c486444838ea6c860d80ea71c.jpg?w=220&f=webp&q=80",
-        title: "고양이2",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/620609/1d5fe868c7f045058b16c66fb70c63b8.jpg?w=220&f=webp&q=80",
-        title: "파피용",
-        author: "베르나르 베르베르 지음, 전미연 옮김",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/15844047/294233c2723e4900a48b47653ae4bdfc.jpg?w=220&f=webp&q=80",
-        title: "고양이 1",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/1468663/b0616a65b166421b8c1ac706dfe01bc4.jpg?w=145&f=webp&q=80",
-        title: "나무",
-        author: "베르나르 베르베르 지음 / 누구누구 엮음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/179506616/d534496965024d7aaf829f7a3e900378.jpg?w=220&f=webp&q=80",
-        title: "틴틴팅클!",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/15844049/7c58e47c486444838ea6c860d80ea71c.jpg?w=220&f=webp&q=80",
-        title: "고양이2",
-        author: "베르나르 베르베르 지음",
-      },
-      {
-        src: "https://cover.millie.co.kr/service/cover/620609/1d5fe868c7f045058b16c66fb70c63b8.jpg?w=220&f=webp&q=80",
-        title: "파피용",
-        author: "베르나르 베르베르 지음, 전미연 옮김",
-      },
-    ],
-  },
   {
     name: "즐겨찾기",
     books: [
