@@ -11,7 +11,7 @@ export const PhoneUser = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-  margin: 0 20px;
+  margin: 0 20px 5px;
   img {
     width: 25px;
     margin-right: 10px;
@@ -35,7 +35,7 @@ export const UserName = styled.div`
 export const Subscription = styled.div`
   border: 1px solid #dfdfdf;
   margin: 0 20px 0 20px;
-  padding: 0 15px 0 15px;
+  padding: 0 15px 15px 15px;
   margin-top: 15px;
   border-radius: 5px;
   .subscribe {
@@ -47,6 +47,7 @@ export const Subscription = styled.div`
       color: #242424;
       font-size: 16px;
       font-weight: 700;
+      letter-spacing: -1px;
     }
     button {
       width: 80px;
@@ -73,8 +74,17 @@ export const Subscription = styled.div`
   .text2 {
     color: #6f6f6f;
     font-size: 13px;
-    font-weight: 700;
-    padding: 0 0 18px;
+    font-weight: 800;
+    padding: 0 0 8px;
+    display: flex;
+    .PBox {
+      width: 75px;
+      border-right: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-right: 10px;
+    }
+    span {
+    }
   }
 `;
 

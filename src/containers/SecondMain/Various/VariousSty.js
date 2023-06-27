@@ -9,8 +9,9 @@ export const Inner = styled.div`
 `;
 
 export const Boxes = styled.div`
-  padding: 13px 20px 0 20px;
+  padding: 20px;
   display: flex;
+  overflow-x: hidden;
 `;
 export const BoxContainer = styled.div`
   display: flex;

@@ -35,14 +35,13 @@ export const Writing = styled.p`
 `;
 
 export const Roads = styled.div`
-  height: 380px;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
   display: flex;
-  overflow: hidden;
+  overflow-x: hidden;
 `;
 
 export const MainRoad = styled.div`
-  width: 250px;
+  min-width: 250px;
   height: 365px;
   border: 1px solid #ddd;
   overflow: hidden;
@@ -86,7 +85,7 @@ export const MainRoad = styled.div`
 
 export const Road = styled.div`
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.06), 2px 2px 10px rgba(0, 0, 0, 0.04);
-  width: 325px;
+  min-width: 325px;
   height: 365px;
   border: 1px solid #ddd;
   margin-left: 15px;

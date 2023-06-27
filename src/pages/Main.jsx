@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainSlide from "../containers/SecondMain/MainSlide/MainSlide";
 import MyClip from "../containers/SecondMain/MyClip/MyClip";
 import MRoad from "../containers/SecondMain/MRoad/MRoad";

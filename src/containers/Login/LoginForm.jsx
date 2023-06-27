@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   LoginContainer,
   LoginDiv,
@@ -8,8 +8,6 @@ import {
   TextBox,
   Options,
   Links,
-  OrDiv,
-  Buttons,
   InputDiv,
 } from "./LoginFormSty";
 import { OptionItem } from "./LoginPage";
@@ -20,12 +18,7 @@ import apiServer from "../../api/api";
 const LoginForm = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
-  const [user, setUser] = useState([]);
   const navigate = useNavigate();
-
-  const ToMain = () => {
-    navigate("/main");
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,27 +28,13 @@ const LoginForm = () => {
         pw,
       });
       console.log("데이터: ", response.data);
-      alert("로그인 성공");
       const token = response.data.token;
       localStorage.setItem("accessToken", token);
+      localStorage.setItem("id", id);
+      alert("로그인 성공");
       navigate("/main");
-
-      const userId = response.data.id;
-      console.log("유저 아이디", userId);
-      getUserData(userId);
     } catch (error) {
       alert("아이디나 비밀번호를 다시 확인해주세요.");
-      console.log(error);
-    }
-  };
-
-  const getUserData = async (userId) => {
-    try {
-      const response = await axios.get(`${apiServer}/api/member/${userId}`);
-      const userData = response.data;
-      setUser(userData);
-      console.log("유저정보:", userData);
-    } catch (error) {
       console.log(error);
     }
   };
@@ -96,34 +75,6 @@ const LoginForm = () => {
             </li>
           ))}
         </Options>
-        {/* <OrDiv>
-          <div className="line"></div>
-          <div className="or">또는</div>
-          <div className="line"></div>
-        </OrDiv>
-        <Buttons>
-          <img
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/login/kakao-icon.9c9940291430ca6ad83b9ae1f3cc81a8.svg"
-            alt="카카오로 로그인"
-          />
-          <img
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/login/naver-icon.7128d171ea0b01233bb4b32a2b5ad260.svg"
-            alt="네이버로 로그인"
-          />
-          <img
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/login/facebook-icon.f3e1fcc7af9f4cac5be2179a846417f8.svg"
-            alt="페이스북으로 로그인"
-          />
-          <img
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/login/apple-icon.c88b92e286a1d29bcf581e12ac076d44.svg"
-            alt="Apple로 로그인"
-          />
-          <img
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/login/google-icon.4f89e46a7f4be2551c6b2ab781be474d.svg"
-            alt="Google로 로그인"
-          />
-        </Buttons> */}
-        {/* <LoginBtn onClick={ToMain}>메인으로</LoginBtn> */}
       </LoginDiv>
     </LoginContainer>
   );

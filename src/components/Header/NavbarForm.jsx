@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Inner,
   LeftBox,
@@ -15,6 +15,7 @@ const NavbarForm2 = () => {
   const [selectMenu, setSelectMenu] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const [userData, setUserData] = useState(null);
 
   const handleMenuClick = (menu) => {
     setSelectMenu(menu);

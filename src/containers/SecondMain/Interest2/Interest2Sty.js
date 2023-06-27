@@ -96,7 +96,7 @@ export const Posts = styled.div`
 `;
 
 export const Post = styled.div`
-  width: 388px;
+  min-width: 388px;
   height: 100%;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.06), 2px 2px 10px rgba(0, 0, 0, 0.04);
   border-radius: 15px;

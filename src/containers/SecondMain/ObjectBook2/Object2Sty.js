@@ -7,15 +7,18 @@ export const Inner = styled.div`
 `;
 
 export const Objects = styled.div`
-  height: 250px;
+  height: max-content;
   display: flex;
   margin-top: 18px;
   padding: 0 20px 0 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
   .box {
     width: 275px;
     display: flex;
     flex-direction: column;
     margin-right: 15px;
+    cursor: pointer;
     video {
       border-radius: 10px;
     }
