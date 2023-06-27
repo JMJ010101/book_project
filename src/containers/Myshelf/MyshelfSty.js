@@ -39,7 +39,7 @@ export const User = styled.div`
     font-size: 25px;
     font-weight: 700;
     color: #333333;
-    margin-bottom: 5px;
+    margin-bottom: 13px;
   }
   .subscribe {
     display: flex;

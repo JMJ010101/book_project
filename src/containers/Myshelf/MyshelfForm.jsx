@@ -117,10 +117,10 @@ const MyshelfForm = () => {
               <div className="name">{userData.name}</div>
               <div className="subscribe">
                 {userData.subscribe ? (
-                  <p>밀리의 서재 구독 중</p>
+                  <p>밀리캐스트 구독 중</p>
                 ) : (
                   <>
-                    <p>밀리의 서재 구독하러 가기</p>
+                    <p>밀리캐스트 구독하러 가기</p>
                     <span
                       onClick={GoProduct}
                       className="material-symbols-outlined"
