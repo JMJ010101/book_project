@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BtnBox,
   FreeBtn,
@@ -14,8 +14,11 @@ import {
 import PhoneIcon from "../../images/phoneMember.png";
 import { ManageList } from "./ManageList";
 import { useNavigate } from "react-router-dom";
+import apiServer from "./../../api/api";
+import axios from "axios";
 
 const ManagementForm = () => {
+  const [userData, setUserData] = useState("");
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -23,29 +26,69 @@ const ManagementForm = () => {
     alert("로그아웃 성공");
     navigate("/");
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `${apiServer}/api/member/${localStorage.getItem("id")}`
+        );
+        const userData = response.data;
+        console.log("유저정보:", userData);
+        setUserData(userData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  console.log("데이터: ", userData);
+
   return (
     <>
       <Inner>
         <PhoneUser>
           <img src={PhoneIcon} alt="휴대폰 아이콘" />
-          <p>휴대폰 계정 회원</p>
+          <p>밀리 회원</p>
         </PhoneUser>
         <UserName>
           <p>
-            순수한 지식인_123456
+            {userData.name}
             <br />
-            독서는 배신하지 않아요!
+            {userData.subscribe === true ? "" : " 독서는 배신하지 않아요!"}
           </p>
         </UserName>
         <Subscription>
           <div className="subscribe">
-            <p className="text1">정기구독을 시작하세요</p>
+            <p className="text1">
+              {userData.subscribe === true
+                ? "월 정기구독 이용중"
+                : "정기구독을 시작하세요"}
+            </p>
             <button>
               <p>구독 관리</p>
               <span class="material-symbols-outlined">arrow_forward_ios</span>
             </button>
           </div>
-          <p className="text2">어려운 독서, 시작하면 습관이 됩니다</p>
+          {userData.subscribe === true ? (
+            <>
+              <p className="text2">
+                <p className="PBox">구독기간</p>
+                <p>
+                  {userData.startDate.split(" ")[0]} ~
+                  {userData.endDate.split(" ")[0]}
+                </p>
+              </p>
+              <p className="text2">
+                <p className="PBox">다음 결제일</p>
+                <p>{userData.endDate.split(" ")[0]}</p>
+              </p>
+            </>
+          ) : (
+            <p className="text2">어려운 독서, 시작하면 습관이 됩니다</p>
+          )}
         </Subscription>
         <BtnBox>
           <Links to="/product">

@@ -28,17 +28,23 @@ const ChatbotIcon = () => {
     setIsModalOpen(false);
   };
 
+  //챗봇
   const ChatbotData = async () => {
     console.log(chatData);
+    const token = localStorage.getItem("accessToken");
     try {
       const response = await axios.get("http://192.168.0.157:8000/chatbot", {
         params: {
           query: chatData,
+          token: token,
         },
       });
       console.log(response.data["answer"]);
       if (response.data.intent === "검색") {
         console.log(response.data.search_results);
+      }
+      if (response.data.intent === "구독 확인") {
+        console.log(response.data.date);
       }
       // Add the input and chatbot response to the chat history
       const chatbotResponse = [
@@ -48,6 +54,12 @@ const ChatbotIcon = () => {
         chatbotResponse.push({
           type: "chatbot",
           message: response.data.search_results,
+        });
+      }
+      if (response.data.date) {
+        chatbotResponse.push({
+          type: "chatbot",
+          message: response.data.date,
         });
       }
       setChatHistory([

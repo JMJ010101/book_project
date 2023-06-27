@@ -25,6 +25,8 @@ import {
   UserContainer,
 } from "./MyshelfSty";
 import { CategoryItem, FilterItem, ShelfItem } from "./MyshelfList";
+import axios from "axios";
+import apiServer from "../../api/api";
 
 const MyshelfForm = () => {
   const [selectCategory, setSelectCategory] = useState("즐겨찾기");
@@ -32,11 +34,31 @@ const MyshelfForm = () => {
   const [filter, setFilter] = useState("서재에 담은 순");
   const [clickSetting, setClickSetting] = useState(false);
   const [randomBook, setRandomBook] = useState("");
+  const [userData, setUserData] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     getRandomBook();
   }, []);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `${apiServer}/api/member/${localStorage.getItem("id")}`
+        );
+        const userData = response.data;
+        console.log("유저정보:", userData);
+        setUserData(userData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  console.log("데이터: ", userData);
 
   const getRandomBook = () => {
     const favoriteShelf = ShelfItem.find((item) => item.name === "즐겨찾기");
@@ -70,7 +92,6 @@ const MyshelfForm = () => {
 
   let filteredBooks = getFilteredBooks();
 
-  // Sort the filteredBooks array if the selected filter is "가나다 순"
   if (filter === "가나다 순") {
     filteredBooks = [...filteredBooks].sort((a, b) =>
       a.title.localeCompare(b.title)
@@ -93,12 +114,21 @@ const MyshelfForm = () => {
               />
             </ProfileImg>
             <User>
-              <div className="name">고양이귀여워</div>
+              <div className="name">{userData.name}</div>
               <div className="subscribe">
-                <p>밀리의 서재 구독하러 가기</p>
-                <span onClick={GoProduct} className="material-symbols-outlined">
-                  chevron_right
-                </span>
+                {userData.subscribe ? (
+                  <p>밀리의 서재 구독 중</p>
+                ) : (
+                  <>
+                    <p>밀리의 서재 구독하러 가기</p>
+                    <span
+                      onClick={GoProduct}
+                      className="material-symbols-outlined"
+                    >
+                      chevron_right
+                    </span>
+                  </>
+                )}
               </div>
             </User>
           </LeftBox>

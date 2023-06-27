@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BannerContainer,
   Book,
@@ -10,12 +10,40 @@ import {
 } from "./VariousSty";
 import { Title } from "../MRoad/MRoadSty";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import getApiKey from "../../../api/restApi";
 
 const Various = () => {
   const [bookItems, setBookItems] = useState([]);
   const restApi = getApiKey();
+  const containerRef = useRef(null);
+  const [startX, setStartX] = useState(0);
+  const [startScrollLeft, setStartScrollLeft] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMouseDown = (e) => {
+    if (e.target.classList.contains("box")) {
+      e.preventDefault();
+      return;
+    }
+    setStartX(e.pageX);
+    setStartScrollLeft(containerRef.current.scrollLeft);
+    setIsDragging(true);
+    containerRef.current.classList.add("dragging");
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const x = e.pageX;
+    const distance = x - startX;
+    containerRef.current.scrollLeft = startScrollLeft - distance;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    containerRef.current.classList.remove("dragging");
+  };
 
   useEffect(() => {
     fetchData();
@@ -32,9 +60,9 @@ const Various = () => {
     "나",
     "친구",
     "바다",
-    "강아지",
-    "고양이",
+    "하늘",
     "수달",
+    "우리",
     "이",
   ];
 
@@ -51,7 +79,7 @@ const Various = () => {
         }
       );
       const data = response.data.documents;
-      const randomItems = getRandomItems(data, 3);
+      const randomItems = getRandomItems(data, 5);
       setBookItems(randomItems);
     } catch (error) {
       console.error(error);
@@ -86,24 +114,29 @@ const Various = () => {
         <Title>
           <p>에디터가 엄선한 이번 주 베스트셀러를 만나보세요</p>
         </Title>
-        <Boxes>
+        <Boxes
+          ref={containerRef}
+          onMouseDown={handleMouseDown} //마우스 누른 상태
+          onMouseMove={handleMouseMove} //마우스 뗀 상태
+          onMouseUp={handleMouseUp} //마우스 움직이는 상태
+        >
           {bookItems.map((item) => (
             <BoxContainer key={item.title}>
-              <Link
-                to={`/bookDetail/${encodeURIComponent(
-                  item.isbn.split(" ")[0]
-                )}`}
+              <Box
+                onClick={() =>
+                  navigate(
+                    `/bookDetail/${encodeURIComponent(item.isbn.split(" ")[0])}`
+                  )
+                }
               >
-                <Box>
-                  <div
-                    className="blur"
-                    style={{
-                      backgroundImage: `url(${item.thumbnail})`,
-                    }}
-                  />
-                  <img src={item.thumbnail} alt={item.title} />
-                </Box>
-              </Link>
+                <div
+                  className="blur"
+                  style={{
+                    backgroundImage: `url(${item.thumbnail})`,
+                  }}
+                />
+                <img src={item.thumbnail} alt={item.title} />
+              </Box>
               <Book>
                 <div className="title">{item.title}</div>
                 <div className="writer">{item.authors}</div>
