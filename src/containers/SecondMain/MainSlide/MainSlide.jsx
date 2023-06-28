@@ -49,8 +49,6 @@ const MainSlide = () => {
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
-        // loop={true}
-        // loopAdditionalSlides={1}
         navigation={true}
         autoplay={{ delay: 6000 }}
         modules={[Navigation, Autoplay]}

@@ -8,6 +8,7 @@ import Interest2 from "../containers/SecondMain/Interest2/Interest2";
 import Sliders from "../containers/SecondMain/Sliders/Sliders";
 import NavbarForm from "../components/Header/NavbarForm";
 import ChatbotIcon from "../components/ChatbotIcon/ChatbotIcon";
+import TopButton from "../components/TopButton/TopButton";
 
 const Main = () => {
   return (
@@ -20,6 +21,7 @@ const Main = () => {
       <ObjectBook2 />
       <Interest2 />
       <Sliders />
+      <TopButton />
       <ChatbotIcon />
     </>
   );

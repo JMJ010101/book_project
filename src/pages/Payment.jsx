@@ -1,12 +1,12 @@
 import React from "react";
 import PaymentForm from "../containers/Payment/PaymentForm";
-import ChatbotIcon2 from "../components/ChatbotIcon/ChatbotIcon2";
+import ChatbotIcon from "../components/ChatbotIcon/ChatbotIcon";
 
 const Payment = () => {
   return (
     <>
       <PaymentForm />
-      <ChatbotIcon2 />
+      <ChatbotIcon />
     </>
   );
 };

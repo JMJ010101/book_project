@@ -11,6 +11,7 @@ import Complete from "../containers/FirstMain/Home/Complete";
 import Footer from "../containers/FirstMain/Home/Footer";
 import MainImage from "../containers/FirstMain/Home/MainImage";
 import Select from "../containers/FirstMain/Home/Select";
+import TopButton from "../components/TopButton/TopButton";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
       <Question />
       <Footer />
       <FreeButton />
+      <TopButton />
     </>
   );
 };

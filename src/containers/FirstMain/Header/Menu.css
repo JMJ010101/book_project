@@ -12,7 +12,6 @@
 .MenuContainer.toggle {
   opacity: 1;
   height: 330px;
-  pointer-events: none;
   z-index: 2;
 }
 

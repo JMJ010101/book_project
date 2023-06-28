@@ -8,17 +8,17 @@ export const IconDiv = styled.div`
   border-radius: 35px;
   cursor: pointer;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  transition: all ease 0.5s;
+  bottom: 70px;
+  right: 13px;
+  transition: all ease 0.7s;
   z-index: 9;
   .material-icons-outlined {
     font-size: 40px;
     color: #333333;
   }
   &:hover {
-    /* transform: rotate(180deg); */
-    transform: scale(1.2);
+    transform: rotate(360deg);
+    /* transform: scale(1.2); */
   }
 `;
 
@@ -33,8 +33,8 @@ export const ModalContent = styled.div`
   align-items: center;
   overflow: hidden;
   position: fixed;
-  bottom: 105px;
-  right: 35px;
+  bottom: 155px;
+  right: 30px;
   z-index: 13;
   padding: 10px 5px 20px 5px;
 `;
@@ -42,8 +42,8 @@ export const ModalContent = styled.div`
 export const ModalBottom = styled.div`
   background-color: #f7f7f7;
   z-index: 14;
-  bottom: 95px;
-  right: 39px;
+  bottom: 145px;
+  right: 34px;
   position: fixed;
   width: 25px;
   height: 25px;

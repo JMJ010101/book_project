@@ -3,6 +3,7 @@ import {
   BookBox,
   BookContainer,
   Books,
+  ButtonBox,
   Info,
   InfoBox,
   Inner,
@@ -51,6 +52,14 @@ const BookDetailForm = () => {
 
   const openModal = () => {
     setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const windowOpen = () => {
+    window.open("/viewer", "_blank", "width=800, height=800");
   };
 
   const getBook = async () => {
@@ -191,7 +200,7 @@ const BookDetailForm = () => {
               <img src={ShareIcon} alt="아이콘" />
               <span>공유하기</span>
             </div>
-            <div className="option">
+            <div className="option" onClick={windowOpen}>
               <img src={PostIcon} alt="아이콘" />
               <span>포스트 쓰기</span>
             </div>
@@ -216,6 +225,17 @@ const BookDetailForm = () => {
               src="https://d3udu241ivsax2.cloudfront.net/v3/images/common/subscribe-illust-new.61767b1a5c96c47dcc338bb8f7351b6a.png"
               alt="밀리 이미지"
             />
+            <ButtonBox>
+              <button className="close" onClick={closeModal}>
+                닫기
+              </button>
+              <button
+                className="subscribe"
+                onClick={() => navigate("/product")}
+              >
+                구독하러 가기
+              </button>
+            </ButtonBox>
           </ModalContent>
         </ModalWrapper>
       )}
