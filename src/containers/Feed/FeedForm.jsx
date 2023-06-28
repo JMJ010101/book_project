@@ -11,6 +11,7 @@ import apiServer from "../../api/api";
 
 const FeedForm = () => {
   const [currentImages, setCurrentImages] = useState("");
+  const [feedData, setFeedData] = useState("");
   // const [like, setLike] = useState(false);
   // const [likeCount, setLikeCount] = useState(0);
 
@@ -33,20 +34,23 @@ const FeedForm = () => {
     setCurrentImages(images);
   };
 
-  // // 책 정보 가져오기
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await axios.get(`${apiServer}/bookinfo/books`);
-  //     const data = response.data;
-  //     // 데이터 처리 로직 작성
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  //피드 가져오기
+  // useEffect(() => {
+  //   const fetchFeedData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `${apiServer}/api/feed~~~~?`
+  //       );
+  //       const feedData = response.data;
+  //       // setFeedData(feedData);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchUserData();
+  // }, []);
 
-  // // fetchData 함수 호출
-  // fetchData();
+  // console.log('피드: ',feedData);
 
   return (
     <>

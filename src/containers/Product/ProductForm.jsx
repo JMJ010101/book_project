@@ -16,7 +16,6 @@ import {
 } from "./ProductSty";
 import { NoticeItem, ProductItem } from "./ProductList";
 import { useNavigate } from "react-router-dom";
-import ChatbotIcon2 from "../../components/ChatbotIcon/ChatbotIcon2";
 
 const ProductForm = () => {
   const [selectOption, setSelectOption] = useState("월 9,900원");

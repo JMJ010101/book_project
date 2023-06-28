@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StarIcon from "../../images/icon_full_star.png";
 import {
@@ -35,8 +35,32 @@ const MyshelfForm = () => {
   const [clickSetting, setClickSetting] = useState(false);
   const [randomBook, setRandomBook] = useState("");
   const [userData, setUserData] = useState("");
+  // const [file, setFile] = useState("");
+  // const [Image, setImage] = useState(
+  //   "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+  // );
+  // const fileInput = useRef(null);
   const navigate = useNavigate();
 
+  // const onChange = (e) => {
+  //   if (e.target.files[0]) {
+  //     setFile(e.target.files[0]);
+  //   } else {
+  //     //업로드 취소할 시
+  //     setImage(
+  //       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+  //     );
+  //     return;
+  //   }
+  //   //화면에 프로필 사진 표시
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       setImage(reader.result);
+  //     }
+  //   };
+  //   reader.readAsDataURL(e.target.files[0]);
+  // };
   useEffect(() => {
     getRandomBook();
   }, []);
@@ -48,7 +72,7 @@ const MyshelfForm = () => {
           `${apiServer}/api/member/${localStorage.getItem("id")}`
         );
         const userData = response.data;
-        console.log("유저정보:", userData);
+        // console.log("유저정보:", userData);
         setUserData(userData);
       } catch (error) {
         console.log(error);
@@ -110,8 +134,20 @@ const MyshelfForm = () => {
             <ProfileImg>
               <img
                 src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTJfMjky%2FMDAxNjcwODQ4MzYyNTYy.QeYlBp0TP6KOWha_zEZnLqY-wQ6jEwZ0jEEVbdbZUP8g.jdK9_uUcbOqKVsSJl6GpN2POuSe-ZFVKiGtpSXIelEEg.JPEG.windysky70%2FIMG_8178.JPG&type=sc960_832"
+                // src={Image}
+                // onClick={() => {
+                //   fileInput.current.click();
+                // }}
                 alt="프로필 사진"
               />
+              {/* <input
+                type="file"
+                style={{ display: "none" }}
+                accept="image/jpg,impge/png,image/jpeg"
+                name="profile_img"
+                onChange={onChange}
+                ref={fileInput}
+              /> */}
             </ProfileImg>
             <User>
               <div className="name">{userData.name}</div>

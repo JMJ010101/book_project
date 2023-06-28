@@ -1,12 +1,12 @@
 import React from "react";
 import ProductForm from "../containers/Product/ProductForm";
-import ChatbotIcon2 from "../components/ChatbotIcon/ChatbotIcon2";
+import ChatbotIcon from "../components/ChatbotIcon/ChatbotIcon";
 
 const Product = () => {
   return (
     <>
       <ProductForm />
-      <ChatbotIcon2 />
+      <ChatbotIcon />
     </>
   );
 };

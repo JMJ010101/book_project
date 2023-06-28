@@ -46,8 +46,8 @@ const LeaveUserForm = () => {
         } catch (error) {
           console.log(`Error: ${error}`);
         }
-
         alert("회원 탈퇴 되었습니다.");
+        localStorage.clear();
         navigate("/");
       } else {
         return;

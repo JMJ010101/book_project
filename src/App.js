@@ -16,6 +16,7 @@ import Feed from "./pages/Feed";
 import BookDetail from "./pages/BookDetail";
 import MyInfo from "./pages/MyInfo";
 import LeaveUser from "./pages/LeaveUser";
+import Viewer from "./pages/Viewer";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/bookDetail/:id" element={<BookDetail />} />
         <Route path="/myinfo" element={<MyInfo />} />
         <Route path="/leave-user" element={<LeaveUser />} />
+        <Route path="/viewer" element={<Viewer />} />
       </Routes>
     </Router>
   );
