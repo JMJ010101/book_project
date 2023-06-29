@@ -38,7 +38,7 @@ function App() {
         <Route path="/bookDetail/:id" element={<BookDetail />} />
         <Route path="/myinfo" element={<MyInfo />} />
         <Route path="/leave-user" element={<LeaveUser />} />
-        <Route path="/viewer" element={<Viewer />} />
+        <Route path="/viewer/:id" element={<Viewer />} />
       </Routes>
     </Router>
   );
