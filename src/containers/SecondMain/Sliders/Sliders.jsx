@@ -16,9 +16,8 @@ const Sliders = () => {
           spaceBetween={15}
           slidesPerView={2}
           pagination={true}
-          navigation={true}
           autoplay={{ delay: 5000 }}
-          modules={[Navigation, Pagination]}
+          modules={[Pagination]}
           className="mySwiper"
         >
           <SwiperSlide>

@@ -297,6 +297,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   font-variant: initial;
   line-height: 1;
   font-weight: 800;
+  background-color: red;
 }
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
@@ -540,7 +541,7 @@ button.swiper-pagination-bullet {
 .swiper-scrollbar {
   border-radius: var(--swiper-scrollbar-border-radius, 10px);
   position: relative;
-  -ms-touch-action: none;
+  /* -ms-touch-action: none; */
   background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.1));
 }
 .swiper-scrollbar-disabled > .swiper-scrollbar,

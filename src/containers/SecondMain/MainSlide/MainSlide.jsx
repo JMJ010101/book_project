@@ -10,8 +10,6 @@ import {
   SlideImg,
   TextBox,
 } from "./MainSlideSty";
-import "swiper/css";
-import "swiper/css/navigation";
 import "./swiper-bundle.css";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 import { slideComment, slideImages } from "./MainSlideList";
@@ -49,13 +47,12 @@ const MainSlide = () => {
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
-        navigation={true}
         autoplay={{ delay: 6000 }}
-        modules={[Navigation, Autoplay]}
+        modules={[Autoplay]}
         onSlideChange={handleSlideChange}
         className="mySwiper"
       >
-        {slideImages.map((img, index) => (
+        {slideImages.map((img) => (
           <SwiperSlide>
             <SlideContainer>
               <ContainerBlur

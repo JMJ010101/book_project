@@ -33,12 +33,13 @@ import NoImage from "../../images/이미지준비중.jpg";
 
 const BookDetailForm = () => {
   let { id } = useParams();
-  console.log(Number(id));
+  console.log("params: ", Number(id));
   const [clickMore, setClickMore] = useState(false);
   const [favorite, setFavorite] = useState(false);
   const [bookItems, setBookItems] = useState([]);
   const [otherBooks, setOtherBooks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentBook, setCurrentBook] = useState("");
   const navigate = useNavigate();
   const restApi = getApiKey();
 
@@ -59,7 +60,12 @@ const BookDetailForm = () => {
   };
 
   const windowOpen = () => {
-    window.open("/viewer", "_blank", "width=800, height=800");
+    const win = window.open(
+      `/viewer/${id}`,
+      "_blank",
+      "width=1200, height=800"
+    );
+    win.currentBook = currentBook;
   };
 
   const getBook = async () => {
@@ -73,12 +79,14 @@ const BookDetailForm = () => {
         }
       );
       const data = response.data.documents;
-      console.log(data);
+      console.log("가져온책", data);
+      setCurrentBook(data);
       setBookItems(data.slice(0, 1));
     } catch (error) {
       console.log(error);
     }
   };
+  console.log("지금 책:", currentBook);
 
   const getOtherBooks = async () => {
     const author = bookItems[0]?.authors[0] || "";
@@ -110,6 +118,7 @@ const BookDetailForm = () => {
   const handleBookClick = (isbn) => {
     navigate(`/bookDetail/${isbn}`);
   };
+
   useEffect(() => {
     getBook();
   }, [id]);

@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Content, FeedBox, Image, Inner, Users, Writer } from "./FeedSty";
+import {
+  Content,
+  FeedBox,
+  Icons,
+  Image,
+  Inner,
+  Recommend,
+  Users,
+  Writer,
+} from "./FeedSty";
 import "./FeedMedia.css";
 import { FeedItem } from "./FeedList";
 import random1 from "../../images/random/KakaoTalk_20230614_154927238.jpg";
@@ -12,13 +21,13 @@ import apiServer from "../../api/api";
 const FeedForm = () => {
   const [currentImages, setCurrentImages] = useState("");
   const [feedData, setFeedData] = useState("");
-  // const [like, setLike] = useState(false);
-  // const [likeCount, setLikeCount] = useState(0);
+  const [like, setLike] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
 
-  // const handleLike = () => {
-  //   setLike(!like);
-  //   setLikeCount(likeCount + (like ? -1 : 1));
-  // };
+  const handleLike = () => {
+    setLike((prevLike) => !prevLike);
+    setLikeCount((prevCount) => (like ? prevCount - 1 : prevCount + 1));
+  };
 
   const randomImages = [random1, random2, random3, random4];
 
@@ -49,8 +58,18 @@ const FeedForm = () => {
   //   };
   //   fetchUserData();
   // }, []);
-
   // console.log('피드: ',feedData);
+
+  const handleLikeClick = async () => {
+    try {
+      const response = await axios.post(`${apiServer}/like/likes`);
+      alert("좋아요 등록");
+      setLike(true);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -82,13 +101,13 @@ const FeedForm = () => {
                 <p className="title">{item.title}</p>
                 <p className="contents">{item.content}</p>
               </Content>
-              {/* <Recommend>
+              <Recommend>
                 <p>이 포스트가 마음에 드시나요?</p>
                 <Icons>
-                  <div className="icon">
+                  {/* <div className="icon">
                     <span class="material-icons">textsms</span>
                     <span>0</span>
-                  </div>
+                  </div> */}
                   <div className="icon" onClick={handleLike}>
                     <span class="material-icons">
                       {!like ? "favorite_border" : "favorite"}
@@ -96,7 +115,7 @@ const FeedForm = () => {
                     <span> {likeCount}</span>
                   </div>
                 </Icons>
-              </Recommend> */}
+              </Recommend>
             </div>
           ))}
         </FeedBox>
