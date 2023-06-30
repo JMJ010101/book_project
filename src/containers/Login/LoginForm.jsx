@@ -29,8 +29,10 @@ const LoginForm = () => {
       });
       console.log("데이터: ", response.data);
       const token = response.data.token;
+      const name = response.data.name;
       localStorage.setItem("accessToken", token);
       localStorage.setItem("id", id);
+      localStorage.setItem("name: ", name);
       alert("로그인 성공");
       navigate("/main");
     } catch (error) {
