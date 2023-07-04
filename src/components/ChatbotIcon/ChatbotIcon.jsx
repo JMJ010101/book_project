@@ -30,7 +30,6 @@ const ChatbotIcon = () => {
 
   //챗봇
   const ChatbotData = async () => {
-    console.log(chatData);
     const token = localStorage.getItem("accessToken");
     try {
       const response = await axios.get("http://192.168.0.157:8000/chatbot", {
@@ -39,12 +38,9 @@ const ChatbotIcon = () => {
           token: token,
         },
       });
-      console.log(response.data["answer"]);
       if (response.data.intent === "검색") {
-        console.log(response.data.search_results);
       }
       if (response.data.intent === "구독 확인") {
-        console.log(response.data.date);
       }
       // Add the input and chatbot response to the chat history
       const chatbotResponse = [
@@ -68,20 +64,23 @@ const ChatbotIcon = () => {
         ...chatbotResponse,
       ]);
     } catch (error) {
-      console.log(`Error: ${error}`);
+      console.log(error);
     }
     // Clear the input field
     setChatData("");
   };
 
+  //엔터키 활성화
   const onKeyUp = (event) => {
     // 'enter'키의 keycode는 13
     if (event.keyCode === 13) {
-      console.log("enter");
       //input값 가져와서 ChatbotData호출
       ChatbotData();
     }
   };
+
+  const chatbotText =
+    " 챗봇 사용 예시입니다.<br /><br /> 1. 책 추천 받기<br />ex) 여행 관련 책 추천해줘 / 찾아줘<br /><br /> 2. 구독 정보 확인 / 취소하기<br />ex) 구독 확인해줘 / 구독 취소해줘<br />";
 
   return (
     <>
@@ -109,6 +108,13 @@ const ChatbotIcon = () => {
               </span>
             </Header>
             <ChatBox className="chatbox">
+              <div className="chatbot-bubble">
+                안녕하세요, 밀리캐스트 회원님!
+              </div>
+              <div
+                className="chatbot-bubble"
+                dangerouslySetInnerHTML={{ __html: chatbotText }}
+              />
               {chatHistory.map((chat, index) => (
                 <div
                   className={

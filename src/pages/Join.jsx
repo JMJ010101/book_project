@@ -26,9 +26,6 @@ const JoinForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("아이디: ", id);
-    console.log("비밀번호: ", pw);
-    console.log("이름: ", name);
 
     if (!isValidPW(pw)) {
       alert("비밀번호는 8-15자 사이의 영문, 특수문자의 조합으로 입력해주세요.");
@@ -50,7 +47,6 @@ const JoinForm = () => {
         }
       );
       alert("회원가입 성공");
-      console.log(response.data);
       navigate("/login");
     } catch (error) {
       alert("회원가입에 실패했습니다.");

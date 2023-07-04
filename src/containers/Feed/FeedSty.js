@@ -78,6 +78,7 @@ export const Content = styled.div`
   letter-spacing: -0.5px;
   .title {
     width: 100%;
+    min-width: 330px;
     height: 22px;
     font-size: 15px;
     font-weight: 800;

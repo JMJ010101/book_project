@@ -34,7 +34,6 @@ const ManagementForm = () => {
           `${apiServer}/api/member/${localStorage.getItem("id")}`
         );
         const userData = response.data;
-        console.log("유저정보:", userData);
         setUserData(userData);
       } catch (error) {
         console.log(error);
@@ -43,8 +42,6 @@ const ManagementForm = () => {
 
     fetchUserData();
   }, []);
-
-  console.log("데이터: ", userData);
 
   return (
     <>
