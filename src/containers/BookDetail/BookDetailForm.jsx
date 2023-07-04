@@ -30,25 +30,22 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import getApiKey from "../../api/restApi";
 import NoImage from "../../images/이미지준비중.jpg";
+import apiServer from "./../../api/api";
 
 const BookDetailForm = () => {
   let { id } = useParams();
-  console.log("params: ", Number(id));
   const [clickMore, setClickMore] = useState(false);
   const [favorite, setFavorite] = useState(false);
   const [bookItems, setBookItems] = useState([]);
   const [otherBooks, setOtherBooks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentBook, setCurrentBook] = useState("");
+  const [isIsbn, setIsIsbn] = useState("");
   const navigate = useNavigate();
   const restApi = getApiKey();
 
   const handleMore = () => {
     setClickMore(!clickMore);
-  };
-
-  const handleFavorite = () => {
-    setFavorite(!favorite);
   };
 
   const openModal = () => {
@@ -68,6 +65,7 @@ const BookDetailForm = () => {
     win.currentBook = currentBook;
   };
 
+  // 책정보 가져오기
   const getBook = async () => {
     try {
       const response = await axios.get(
@@ -79,15 +77,18 @@ const BookDetailForm = () => {
         }
       );
       const data = response.data.documents;
-      console.log("가져온책", data);
       setCurrentBook(data);
       setBookItems(data.slice(0, 1));
+      // ISBN만 꺼내기
+      const isbns = data.map((book) => book.isbn);
+      setIsIsbn(isbns);
     } catch (error) {
       console.log(error);
     }
   };
-  console.log("지금 책:", currentBook);
+  console.log("dd", isIsbn);
 
+  // 같은작가의 다른 책
   const getOtherBooks = async () => {
     const author = bookItems[0]?.authors[0] || "";
     try {
@@ -100,7 +101,6 @@ const BookDetailForm = () => {
         }
       );
       const data = response.data.documents;
-      console.log(data);
       setOtherBooks(
         data.filter((book) => book.isbn.split(" ")[0] !== id).slice(0, 7)
       ); // 최대 7권만 보여주기
@@ -114,6 +114,17 @@ const BookDetailForm = () => {
       getOtherBooks();
     }
   }, [bookItems]);
+
+  //즐겨찾기
+  const handleFavorite = async () => {
+    try {
+      const response = await axios.post(`${apiServer}/api/~?`, { idx: isIsbn });
+      console.log(response.data); // 서버 응답 데이터 출력
+      setFavorite(!favorite);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleBookClick = (isbn) => {
     navigate(`/bookDetail/${isbn}`);

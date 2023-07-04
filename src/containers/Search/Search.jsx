@@ -74,12 +74,10 @@ const Search = () => {
 
   const printRequestUrl = () => {
     const requestUrl = getRequestUrl();
-    console.log("요청 URL:", requestUrl);
   };
 
   const onKeyUp = (event) => {
     if (event.keyCode === 13) {
-      console.log("enter");
       searchBook();
     }
   };

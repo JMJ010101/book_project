@@ -42,7 +42,6 @@ const LeaveUserForm = () => {
             },
           });
           // 데이터를 받아와 처리
-          console.log(response.data);
         } catch (error) {
           console.log(`Error: ${error}`);
         }

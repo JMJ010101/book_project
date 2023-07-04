@@ -27,9 +27,6 @@ const ViewerForm = () => {
     setSelectPage(page);
   };
 
-  console.log("옵션: ", selectPage);
-  console.log("인덱스: ", activeSlideIndex);
-
   return (
     <Container>
       <LeftContainer>

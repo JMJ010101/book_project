@@ -126,7 +126,6 @@ const PaymentForm = () => {
           },
         }
       );
-      console.log(response.data);
       alert("구독 성공");
       navigate("/main");
     } catch (error) {
