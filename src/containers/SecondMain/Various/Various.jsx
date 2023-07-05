@@ -63,7 +63,6 @@ const Various = () => {
     "이",
     "원피스",
     "코난",
-    "도라에몽",
   ];
 
   const fetchData = async () => {

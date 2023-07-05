@@ -1,9 +1,3 @@
-export const CategoryItem = [
-  {
-    name: "즐겨찾기",
-  },
-];
-
 export const FilterItem = [
   {
     name: "서재에 담은 순",

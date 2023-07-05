@@ -24,7 +24,7 @@ import {
   User,
   UserContainer,
 } from "./MyshelfSty";
-import { CategoryItem, FilterItem, ShelfItem } from "./MyshelfList";
+import { FilterItem, ShelfItem } from "./MyshelfList";
 import axios from "axios";
 import apiServer from "../../api/api";
 
@@ -41,6 +41,7 @@ const MyshelfForm = () => {
     getRandomBook();
   }, []);
 
+  //회원정보 조회
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -66,10 +67,6 @@ const MyshelfForm = () => {
       const book = favoriteShelf.books[randomIndex];
       setRandomBook(book);
     }
-  };
-
-  const handleCategory = (category) => {
-    setSelectCategory(category);
   };
 
   const selectFilter = (selectedFilter) => {
@@ -113,7 +110,7 @@ const MyshelfForm = () => {
             <User>
               <div className="name">{userData.name}</div>
               <div className="subscribe">
-                {userData.subscribe ? (
+                {localStorage.getItem("subscribe") === true ? (
                   <p>밀리캐스트 구독 중</p>
                 ) : (
                   <>
@@ -152,15 +149,7 @@ const MyshelfForm = () => {
         <CategoryBox>
           <CateInner>
             <BtnBox>
-              {CategoryItem.map((cate) => (
-                <CategoryBtn
-                  key={cate.name}
-                  onClick={() => handleCategory(cate.name)}
-                  selected={selectCategory === cate.name}
-                >
-                  {cate.name}
-                </CategoryBtn>
-              ))}
+              <CategoryBtn>즐겨찾기</CategoryBtn>
             </BtnBox>
           </CateInner>
         </CategoryBox>
@@ -195,12 +184,12 @@ const MyshelfForm = () => {
                         </span>
                       )}
                     </SortBox>
-                    <span
+                    {/* <span
                       className="material-symbols-outlined"
                       onClick={() => setClickSetting(!clickSetting)}
                     >
                       settings
-                    </span>
+                    </span> */}
                   </Sort>
                 </Options>
                 <Books>
