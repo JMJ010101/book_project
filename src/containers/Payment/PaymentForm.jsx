@@ -127,6 +127,7 @@ const PaymentForm = () => {
         }
       );
       alert("구독 성공");
+      localStorage.setItem("subscribe", true);
       navigate("/main");
     } catch (error) {
       console.log(`Error: ${error}`);

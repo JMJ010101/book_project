@@ -54,13 +54,15 @@ const ManagementForm = () => {
           <p>
             {userData.name}
             <br />
-            {userData.subscribe === true ? "" : " 독서는 배신하지 않아요!"}
+            {localStorage.getItem("subscribe") === true
+              ? ""
+              : " 독서는 배신하지 않아요!"}
           </p>
         </UserName>
         <Subscription>
           <div className="subscribe">
             <p className="text1">
-              {userData.subscribe === true
+              {localStorage.getItem("subscribe") === true
                 ? "월 정기구독 이용중"
                 : "정기구독을 시작하세요"}
             </p>
@@ -69,7 +71,7 @@ const ManagementForm = () => {
               <span class="material-symbols-outlined">arrow_forward_ios</span>
             </button>
           </div>
-          {userData.subscribe === true ? (
+          {localStorage.getItem("subscribe") === true ? (
             <>
               <p className="text2">
                 <p className="PBox">구독기간</p>

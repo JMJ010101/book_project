@@ -119,10 +119,10 @@ export const CategoryBtn = styled.button`
   background-color: transparent;
   color: #242424;
   border: none;
-  border-bottom: ${(props) => (props.selected ? "3px solid #333333" : "")};
+  border-bottom: 3px solid #333;
   padding: 14px 0;
   font-size: 18px;
-  font-weight: ${(props) => (props.selected ? "bold" : "")};
+  font-weight: bold;
   margin-right: 30px;
   cursor: pointer;
 `;

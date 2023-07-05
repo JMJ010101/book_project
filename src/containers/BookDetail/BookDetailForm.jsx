@@ -86,7 +86,6 @@ const BookDetailForm = () => {
       console.log(error);
     }
   };
-  console.log("dd", isIsbn);
 
   // 같은작가의 다른 책
   const getOtherBooks = async () => {
@@ -226,7 +225,15 @@ const BookDetailForm = () => {
             </div>
           </Options>
           <ReadButton>
-            <button onClick={openModal}>바로 읽기</button>
+            <button
+              onClick={
+                localStorage.getItem("subscribe") === true
+                  ? windowOpen
+                  : openModal
+              }
+            >
+              바로 읽기
+            </button>
           </ReadButton>
         </RightBox>
       </Inner>
