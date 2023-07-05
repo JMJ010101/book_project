@@ -219,7 +219,7 @@ const BookDetailForm = () => {
               <img src={ShareIcon} alt="아이콘" />
               <span>공유하기</span>
             </div>
-            <div className="option" onClick={windowOpen}>
+            <div className="option">
               <img src={PostIcon} alt="아이콘" />
               <span>포스트 쓰기</span>
             </div>
@@ -227,7 +227,7 @@ const BookDetailForm = () => {
           <ReadButton>
             <button
               onClick={
-                localStorage.getItem("subscribe") === true
+                localStorage.getItem("subscribe") === "true"
                   ? windowOpen
                   : openModal
               }
