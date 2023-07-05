@@ -108,9 +108,9 @@ const MyshelfForm = () => {
               />
             </ProfileImg>
             <User>
-              <div className="name">{userData.name}</div>
+              <div className="name">{localStorage.getItem("name")}</div>
               <div className="subscribe">
-                {localStorage.getItem("subscribe") === true ? (
+                {userData.subscribe === "true" ? (
                   <p>밀리캐스트 구독 중</p>
                 ) : (
                   <>
